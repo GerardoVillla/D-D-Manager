@@ -28,7 +28,7 @@ En el mundo de los juegos de rol, como Dungeons & Dragons, los directores de jue
 - [ ] Descripción detallada de la estructura de carpetas, especialmente si se utiliza un framework específico.
 
 ## Contribución
-¡Gracias por considerar contribuir a D&D-Manager! Si deseas contribuir, sigue estos pasos:
+
 1. [ ] Forkea el repositorio.
 2. [ ] Clona tu repositorio forkeado: `git clone https://github.com/TU_USUARIO/D&D-Manager.git`
 3. [ ] Crea una rama para tu contribución: `git checkout -b nombre-de-tu-rama`
