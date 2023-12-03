@@ -30,7 +30,7 @@ En el mundo de los juegos de rol, como Dungeons & Dragons, los directores de jue
 ## Contribución
 
 1. [ ] Forkea el repositorio.
-2. [ ] Clona tu repositorio forkeado: `git clone https://github.com/TU_USUARIO/D&D-Manager.git`
+2. [ ] Clona tu repositorio forkeado: `git clone [https://github.com/GerardoVillla/D-D-Manager]`
 3. [ ] Crea una rama para tu contribución: `git checkout -b nombre-de-tu-rama`
 4. [ ] Realiza tus cambios y haz commit: `git commit -m "Descripción de los cambios"`
 5. [ ] Haz push a tu rama: `git push origin nombre-de-tu-rama`
