@@ -1,31 +1,37 @@
 package view;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.FlowLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JTextField;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 public class Creacion_Personaje extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField HP;
+	private JTextField nombre;
+	private JButton finalizar;
+	private JComboBox comboBoxFue;
+	private JComboBox comboBoxDes;
+	private JComboBox comboBoxCons;
+	private JComboBox comboBoxInt;
+	private JComboBox comboBoxSab;
+	private JComboBox comboBoxCar;
+	private JComboBox lvl;
 
 	/**
 	 * Launch the application.
@@ -74,24 +80,24 @@ public class Creacion_Personaje extends JFrame {
 		lblIngresaLosAtributos_1.setBounds(22, 244, 89, 30);
 		contentPane.add(lblIngresaLosAtributos_1);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		textField.setBounds(170, 383, 122, 24);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		HP = new JTextField();
+		HP.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		HP.setBounds(170, 383, 122, 24);
+		contentPane.add(HP);
+		HP.setColumns(10);
 		
-		JButton btnNewButton = new JButton("FINALIZAR");
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBackground(new Color(0,125,0));
-		btnNewButton.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255)));
-		btnNewButton.addActionListener(new ActionListener() {
+		finalizar = new JButton("FINALIZAR");
+		finalizar.setForeground(new Color(255, 255, 255));
+		finalizar.setBackground(new Color(0,125,0));
+		finalizar.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255)));
+		finalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		btnNewButton.setBackground(new Color(0, 128, 0));
-		btnNewButton.setBounds(357, 125, 121, 31);
-		contentPane.add(btnNewButton);
+		finalizar.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		finalizar.setBackground(new Color(0, 128, 0));
+		finalizar.setBounds(357, 125, 121, 31);
+		contentPane.add(finalizar);
 		
 		JLabel lblIngresaLosAtributos_1_1 = new JLabel("NIVEL\r\n");
 		lblIngresaLosAtributos_1_1.setForeground(Color.WHITE);
@@ -99,10 +105,10 @@ public class Creacion_Personaje extends JFrame {
 		lblIngresaLosAtributos_1_1.setBounds(343, 380, 50, 30);
 		contentPane.add(lblIngresaLosAtributos_1_1);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBox.setBounds(421, 384, 57, 24);
-		contentPane.add(comboBox);
+		lvl = new JComboBox();
+		lvl.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		lvl.setBounds(421, 384, 57, 24);
+		contentPane.add(lvl);
 		
 		JLabel lblNewLabel_1 = new JLabel("PUNTOS DE VIDA");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
@@ -110,11 +116,11 @@ public class Creacion_Personaje extends JFrame {
 		lblNewLabel_1.setBounds(22, 380, 146, 30);
 		contentPane.add(lblNewLabel_1);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		textField_1.setColumns(10);
-		textField_1.setBounds(22, 125, 318, 31);
-		contentPane.add(textField_1);
+		nombre = new JTextField();
+		nombre.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		nombre.setColumns(10);
+		nombre.setBounds(22, 125, 318, 31);
+		contentPane.add(nombre);
 		
 		JLabel lblIngresaLosAtributos_1_2 = new JLabel("NOMBRE");
 		lblIngresaLosAtributos_1_2.setForeground(Color.WHITE);
@@ -158,35 +164,37 @@ public class Creacion_Personaje extends JFrame {
         imagen.setBounds(50, 30, size.width, size.height); //Sets the location of the image
         contentPane.add(imagen);
 		
-		JComboBox comboBox_1_2_1 = new JComboBox();
-		comboBox_1_2_1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBox_1_2_1.setBounds(170, 178, 57, 24);
-		contentPane.add(comboBox_1_2_1);
+		comboBoxFue = new JComboBox();
+		comboBoxFue.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		comboBoxFue.setBounds(170, 178, 57, 24);
+		comboBoxFue.addItem(1);
+		comboBoxFue.addItem(2);
+		contentPane.add(comboBoxFue);
 		
-		JComboBox comboBox_1_2_1_2 = new JComboBox();
-		comboBox_1_2_1_2.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBox_1_2_1_2.setBounds(170, 247, 57, 24);
-		contentPane.add(comboBox_1_2_1_2);
+		comboBoxDes = new JComboBox();
+		comboBoxDes.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		comboBoxDes.setBounds(170, 247, 57, 24);
+		contentPane.add(comboBoxDes);
 		
-		JComboBox comboBox_1_2_1_3 = new JComboBox();
-		comboBox_1_2_1_3.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBox_1_2_1_3.setBounds(170, 316, 57, 24);
-		contentPane.add(comboBox_1_2_1_3);
+		comboBoxCons = new JComboBox();
+		comboBoxCons.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		comboBoxCons.setBounds(170, 316, 57, 24);
+		contentPane.add(comboBoxCons);
 		
-		JComboBox comboBox_1_2_1_1 = new JComboBox();
-		comboBox_1_2_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBox_1_2_1_1.setBounds(421, 316, 57, 24);
-		contentPane.add(comboBox_1_2_1_1);
+		comboBoxCar = new JComboBox();
+		comboBoxCar.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		comboBoxCar.setBounds(421, 316, 57, 24);
+		contentPane.add(comboBoxCar);
 		
-		JComboBox comboBox_1_2_1_4 = new JComboBox();
-		comboBox_1_2_1_4.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBox_1_2_1_4.setBounds(421, 247, 57, 24);
-		contentPane.add(comboBox_1_2_1_4);
+		comboBoxSab = new JComboBox();
+		comboBoxSab.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		comboBoxSab.setBounds(421, 247, 57, 24);
+		contentPane.add(comboBoxSab);
 		
-		JComboBox comboBox_1_2_1_5 = new JComboBox();
-		comboBox_1_2_1_5.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBox_1_2_1_5.setBounds(421, 178, 57, 23);
-		contentPane.add(comboBox_1_2_1_5);
+		comboBoxInt = new JComboBox();
+		comboBoxInt.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		comboBoxInt.setBounds(421, 178, 57, 23);
+		contentPane.add(comboBoxInt);
 		
 		JLabel Imagen = new JLabel("");
 		Imagen.setIcon(new ImageIcon(Creacion_Personaje.class.getResource("/image/DND.jpg")));
@@ -195,5 +203,80 @@ public class Creacion_Personaje extends JFrame {
 		ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(Imagen.getWidth(), Imagen.getHeight(), Image.SCALE_SMOOTH));
 		Imagen.setIcon(img);
 		contentPane.add(Imagen);
+	}
+
+	public JButton getFinalizar() {
+		return finalizar;
+	}
+
+	public void setFinalizar(JButton finalizar) {
+		this.finalizar = finalizar;
+	}
+	public JTextField getHP() {
+		return HP;
+	}
+
+	public JTextField getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(JTextField nombre) {
+		this.nombre = nombre;
+	}
+
+	public JComboBox getComboBoxFue() {
+		return comboBoxFue;
+	}
+
+	public void setComboBoxFue(JComboBox comboBoxFue) {
+		this.comboBoxFue = comboBoxFue;
+	}
+
+	public JComboBox getComboBoxDes() {
+		return comboBoxDes;
+	}
+
+	public void setComboBoxDes(JComboBox comboBoxDes) {
+		this.comboBoxDes = comboBoxDes;
+	}
+
+	public JComboBox getComboBoxCons() {
+		return comboBoxCons;
+	}
+
+	public void setComboBoxCons(JComboBox comboBoxCons) {
+		this.comboBoxCons = comboBoxCons;
+	}
+
+	public JComboBox getComboBoxInt() {
+		return comboBoxInt;
+	}
+
+	public void setComboBoxInt(JComboBox comboBoxInt) {
+		this.comboBoxInt = comboBoxInt;
+	}
+
+	public JComboBox getComboBoxSab() {
+		return comboBoxSab;
+	}
+
+	public void setComboBoxSab(JComboBox comboBoxSab) {
+		this.comboBoxSab = comboBoxSab;
+	}
+
+	public JComboBox getComboBoxCar() {
+		return comboBoxCar;
+	}
+
+	public void setComboBoxCar(JComboBox comboBoxCar) {
+		this.comboBoxCar = comboBoxCar;
+	}
+
+	public void setHP(JTextField hP) {
+		HP = hP;
+	}
+	
+	public JComboBox getLvl() {
+		return this.lvl;
 	}
 }
