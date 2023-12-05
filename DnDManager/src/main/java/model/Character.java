@@ -57,7 +57,7 @@ public class Character {
         this.armorSlot = null;
     }
    
-    private void calculateCA(){
+    public void calculateCA(){
         int CA = 10;
         if(this.armorSlot != null){
             //CA += this.armorSlot.getArmor();
@@ -72,7 +72,7 @@ public class Character {
         this.CA = CA;
     }
 
-    private boolean tryAttack(int CA){
+    public boolean tryAttack(int CA){
         int attack = (int) (Math.random() * 20) + 1;
         if(attack >= CA){
             return true;
