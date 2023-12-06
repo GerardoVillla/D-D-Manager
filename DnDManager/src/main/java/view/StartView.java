@@ -55,19 +55,19 @@ public class StartView extends JFrame {
 		JLabel lblNewLabel = new JLabel("D-D Manager");
 		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 35));
 		lblNewLabel.setLabelFor(this);
-		lblNewLabel.setBounds(219, 23, 272, 80);
+		lblNewLabel.setBounds(56, 33, 272, 80);
 		panel.add(lblNewLabel);
 		
 		JButton btnNewButton_1 = new JButton("Consultar personaje");
-		btnNewButton_1.setBounds(237, 222, 230, 75);
+		btnNewButton_1.setBounds(79, 220, 230, 75);
 		panel.add(btnNewButton_1);
 		
 		JButton btnEditarTienda = new JButton("Editar tienda");
-		btnEditarTienda.setBounds(237, 325, 230, 62);
+		btnEditarTienda.setBounds(79, 308, 230, 62);
 		panel.add(btnEditarTienda);
 		
 		JButton btnNewButton = new JButton("Crear personaje");
-		btnNewButton.setBounds(237, 131, 230, 69);
+		btnNewButton.setBounds(79, 138, 230, 69);
 		panel.add(btnNewButton);
 	}
 }
