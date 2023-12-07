@@ -111,6 +111,60 @@ public class Character {
         this.level=level;
 
     }
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Character [characterName=");
+		builder.append(characterName);
+		builder.append(", level=");
+		builder.append(level);
+		builder.append(", race=");
+		builder.append(race);
+		builder.append(", calss=");
+		builder.append(calss);
+		builder.append(", currentHP=");
+		builder.append(currentHP);
+		builder.append(", maxHP=");
+		builder.append(maxHP);
+		builder.append(", charisma=");
+		builder.append(charisma);
+		builder.append(", charismaMod=");
+		builder.append(charismaMod);
+		builder.append(", intelligence=");
+		builder.append(intelligence);
+		builder.append(", intelligenceMod=");
+		builder.append(intelligenceMod);
+		builder.append(", wisdom=");
+		builder.append(wisdom);
+		builder.append(", wisdomMod=");
+		builder.append(wisdomMod);
+		builder.append(", constitution=");
+		builder.append(constitution);
+		builder.append(", constitutionMod=");
+		builder.append(constitutionMod);
+		builder.append(", dexterity=");
+		builder.append(dexterity);
+		builder.append(", dexterityMod=");
+		builder.append(dexterityMod);
+		builder.append(", strength=");
+		builder.append(strength);
+		builder.append(", strengthMod=");
+		builder.append(strengthMod);
+		builder.append(", storage=");
+		builder.append(storage);
+		builder.append(", weaponSlot=");
+		builder.append(weaponSlot);
+		builder.append(", shieldSlot=");
+		builder.append(shieldSlot);
+		builder.append(", armorSlot=");
+		builder.append(armorSlot);
+		builder.append(", money=");
+		builder.append(money);
+		builder.append(", CA=");
+		builder.append(CA);
+		builder.append("]");
+		return builder.toString();
+	}
 
 
     /* 
@@ -139,4 +193,6 @@ public class Character {
 
     }
     */
+    
+    
 }
