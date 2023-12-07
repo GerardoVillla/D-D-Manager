@@ -17,13 +17,14 @@ import view.StartView;
 
 
 public class ControlCreacionPersonaje implements ActionListener {
+	public CharacterDao cd;
     public Character character;
     public Creacion_Personaje creacionPersonaje;
     private ArrayList<Character> characters;
     public StartView StartView; //Era para abrir la ventana de inicio pero la marca nula
     
-    public ControlCreacionPersonaje(Character character, Creacion_Personaje creacionPersonaje) {
-        this.character = character;
+    public ControlCreacionPersonaje(CharacterDao cd, Creacion_Personaje creacionPersonaje) {
+        this.cd=cd;
         this.creacionPersonaje = creacionPersonaje;
         this.characters= new ArrayList<Character>();
         
@@ -97,8 +98,7 @@ public class ControlCreacionPersonaje implements ActionListener {
      
             //Characters.add(new Character(raza, clase, name, fuerza,destreza,sabiduria , carisma, constitucion, inteligencia, hp,lvl));
             characters.add(Character);
-            CharacterDao cd = new CharacterDao();
-            cd.saveCharacter(Character);
+            this.cd.saveCharacter(Character);
             this.creacionPersonaje.dispose();
            /* StartView ST= new StartView();
             this.StartView.setVisible(true);*/
