@@ -15,6 +15,9 @@ public class StartView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JButton tienda;
+	private JButton consultarPersonaje;
+	private JButton crearPersonaje;
 
 	/**
 	 * Launch the application.
@@ -58,16 +61,42 @@ public class StartView extends JFrame {
 		lblNewLabel.setBounds(56, 33, 272, 80);
 		panel.add(lblNewLabel);
 		
-		JButton btnNewButton_1 = new JButton("Consultar personaje");
-		btnNewButton_1.setBounds(79, 220, 230, 75);
-		panel.add(btnNewButton_1);
+		 consultarPersonaje = new JButton("Consultar personaje");
+		consultarPersonaje.setBounds(79, 220, 230, 75);
+		panel.add(consultarPersonaje);
 		
-		JButton btnEditarTienda = new JButton("Editar tienda");
-		btnEditarTienda.setBounds(79, 308, 230, 62);
-		panel.add(btnEditarTienda);
+		 tienda = new JButton("Editar tienda");
+		tienda.setBounds(79, 308, 230, 62);
+		panel.add(tienda);
 		
-		JButton btnNewButton = new JButton("Crear personaje");
-		btnNewButton.setBounds(79, 138, 230, 69);
-		panel.add(btnNewButton);
+		 crearPersonaje = new JButton("Crear personaje");
+		crearPersonaje.setBounds(79, 138, 230, 69);
+		panel.add(crearPersonaje);
 	}
+
+	public JButton getTienda() {
+		return tienda;
+	}
+
+	public void setTienda(JButton tienda) {
+		this.tienda = tienda;
+	}
+
+	public JButton getConsultarPersonaje() {
+		return consultarPersonaje;
+	}
+
+	public void setConsultarPersonaje(JButton consultarPersonaje) {
+		this.consultarPersonaje = consultarPersonaje;
+	}
+
+	public JButton getCrearPersonaje() {
+		return crearPersonaje;
+	}
+
+	public void setCrearPersonaje(JButton crearPersonaje) {
+		this.crearPersonaje = crearPersonaje;
+	}
+	
+	
 }
