@@ -15,7 +15,7 @@ import model.Character;
 
 
 public class CharacterDao {
-	    private static final String FILE_PATH = "/src/main/java/dao/characters.json";
+	    private static final String FILE_PATH = "D:/IGNITER/Documents/Github/D-D-Manager/DnDManager/src/main/java/files/characters.json";
 	    private List<Character> characters;
 	    
 	    public CharacterDao() {

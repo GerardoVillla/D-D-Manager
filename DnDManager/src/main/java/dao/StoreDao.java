@@ -14,7 +14,7 @@ import model.Character;
 import model.Store;
 
 public class StoreDao {
-	private static final String FILE_PATH = "/src/main/java/dao/stores.json";
+	private static final String FILE_PATH = "D:/IGNITER/Documents/Github/D-D-Manager/DnDManager/src/main/java/files/stores.json";
 	 private List<Store> stores;
 	    
 	    public StoreDao() {
