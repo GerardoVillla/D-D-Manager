@@ -18,15 +18,14 @@ import view.StartView;
 
 public class ControlCreacionPersonaje implements ActionListener {
 	public CharacterDao cd;
-    public Character character;
+	public StoreDao sd;
     public Creacion_Personaje creacionPersonaje;
-    private ArrayList<Character> characters;
     public StartView StartView; //Era para abrir la ventana de inicio pero la marca nula
     
-    public ControlCreacionPersonaje(CharacterDao cd, Creacion_Personaje creacionPersonaje) {
+    public ControlCreacionPersonaje(StoreDao sd,CharacterDao cd, Creacion_Personaje creacionPersonaje) {
         this.cd=cd;
+        this.sd=sd;
         this.creacionPersonaje = creacionPersonaje;
-        this.characters= new ArrayList<Character>();
         
         this.creacionPersonaje.getFinalizar().addActionListener(this);
     }
@@ -97,11 +96,12 @@ public class ControlCreacionPersonaje implements ActionListener {
             
      
             //Characters.add(new Character(raza, clase, name, fuerza,destreza,sabiduria , carisma, constitucion, inteligencia, hp,lvl));
-            characters.add(Character);
             this.cd.saveCharacter(Character);
             this.creacionPersonaje.dispose();
-           /* StartView ST= new StartView();
-            this.StartView.setVisible(true);*/
+            
+            StartView st= new StartView();
+            ControlStartView csv=new ControlStartView(this.cd,this.sd,st);
+            st.setVisible(true);
             //Me marca que "view.StartView.setVisible(boolean)"
         }
 

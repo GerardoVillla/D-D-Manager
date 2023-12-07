@@ -106,6 +106,7 @@ public class Character {
     
     public Character(Race race, String characterName, int strength, int dexterity, int wisdom, int charisma, int constitution, int intelligence, int maxHP, int level) {
         this.storage = new Storage();
+        this.constitution=constitution+race.getModifyConstitution();
         this.strength = strength + race.getModifyStrength();
         this.dexterity=dexterity + race.getModifyDexterity();
         this.wisdom=wisdom+race.getModifyWisdom();

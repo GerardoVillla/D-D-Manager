@@ -24,8 +24,15 @@ public class ControlStartView implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==startView.getCrearPersonaje()) {
 			Creacion_Personaje cp= new Creacion_Personaje();
-			ControlCreacionPersonaje ccp=new ControlCreacionPersonaje(cd,cp);
+			ControlCreacionPersonaje ccp=new ControlCreacionPersonaje(sd,cd,cp);
 			cp.setVisible(true);
+			startView.dispose();
+		}
+		if(e.getSource()==startView.getConsultarPersonaje()) {
+			Window2 w2 = new Window2();
+			W2Controller w2c=new W2Controller(cd,sd,w2);
+			w2.setVisible(true);
+			
 		}
 		
 	}
