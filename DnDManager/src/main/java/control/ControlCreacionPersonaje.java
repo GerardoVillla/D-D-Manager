@@ -3,6 +3,9 @@ package control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
+import dao.CharacterDao;
+import dao.StoreDao;
 import model.Character;
 import model.Dragonborn;
 import model.Dwarf;
@@ -16,12 +19,13 @@ import view.StartView;
 public class ControlCreacionPersonaje implements ActionListener {
     public Character character;
     public Creacion_Personaje creacionPersonaje;
-    private ArrayList<Character> Characters = new ArrayList<Character>();
+    private ArrayList<Character> characters;
     public StartView StartView; //Era para abrir la ventana de inicio pero la marca nula
     
     public ControlCreacionPersonaje(Character character, Creacion_Personaje creacionPersonaje) {
         this.character = character;
         this.creacionPersonaje = creacionPersonaje;
+        this.characters= new ArrayList<Character>();
         
         this.creacionPersonaje.getFinalizar().addActionListener(this);
     }
@@ -39,30 +43,29 @@ public class ControlCreacionPersonaje implements ActionListener {
             int lvl= Integer.parseInt(String.valueOf(this.creacionPersonaje.getLvl().getSelectedItem()));
             String raza = String.valueOf(this.creacionPersonaje.getComboBoxRaza().getSelectedItem());
             String clase = String.valueOf(this.creacionPersonaje.getComboBoxClase().getSelectedItem());
-            Dragonborn G1 = new Dragonborn();
-            Barbarian G2 = new Barbarian();
-            Character Character = new Character(G1, G2, name, fuerza,destreza,sabiduria , carisma, constitucion, inteligencia, hp,lvl);
+            Race race=new Race();
             
             switch(raza) {
             case "Dragonborn":
-            	Character.setRace(new Dragonborn());
+            	race=new Dragonborn();
             case "Dwarf":
-            	Character.setRace(new Dwarf());       
+            	race=new Dwarf();       
             case "Elf":
-            	Character.setRace(new Elf());  
+            	race = new Elf();  
             case "Gnome":
-            	Character.setRace(new Gnome()); 
+            	race= new Gnome(); 
             case "Half-Elf":
-            	Character.setRace(new HalfElf()); 
+            	race=new HalfElf();
             case "Half-Orc":
-            	Character.setRace(new HalfOrc()); 
+            	race=new HalfOrc(); 
             case "Human":
-            	Character.setRace(new Human()); 
+            	race = new Human(); 
             case "Halfling":
-            	Character.setRace(new Halfling()); 
+            	race = new Halfling();
             case "Tiefling":
-            	Character.setRace(new Tiefling()); 
+            	race=new Tiefling(); 
             }
+            Character Character = new Character(race, name, fuerza,destreza,sabiduria , carisma, constitucion, inteligencia, hp,lvl);
             
             switch(clase) {
             case "Barbarian":
@@ -93,7 +96,9 @@ public class ControlCreacionPersonaje implements ActionListener {
             
      
             //Characters.add(new Character(raza, clase, name, fuerza,destreza,sabiduria , carisma, constitucion, inteligencia, hp,lvl));
-            Characters.add(Character);
+            characters.add(Character);
+            CharacterDao cd = new CharacterDao();
+            cd.saveCharacter(Character);
             this.creacionPersonaje.dispose();
            /* StartView ST= new StartView();
             this.StartView.setVisible(true);*/

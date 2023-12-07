@@ -104,7 +104,7 @@ public class Character {
         }
     }
     
-    public Character(Race race, Myclass myclass, String characterName, int strength, int dexterity, int wisdom, int charisma, int constitution, int intelligence, int maxHP, int level) {
+    public Character(Race race, String characterName, int strength, int dexterity, int wisdom, int charisma, int constitution, int intelligence, int maxHP, int level) {
         this.storage = new Storage();
         this.strength = strength + race.getModifyStrength();
         this.dexterity=dexterity + race.getModifyDexterity();

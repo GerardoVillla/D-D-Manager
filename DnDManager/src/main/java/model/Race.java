@@ -9,7 +9,7 @@ Lo mismo que con armadura, equipable, raza y clase. Le convendria ser abstractas
 haga una raza de tipo Raza o una armadura de tipo Armadura)pero no estan marcadas asi en el UML, de todos modos 
 lo borran si no les gusta
 */
-public abstract class Race {
+public class Race {
     protected String name;
     protected String description;
 
