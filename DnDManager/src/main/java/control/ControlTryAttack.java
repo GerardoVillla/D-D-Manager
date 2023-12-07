@@ -31,5 +31,5 @@ public class ControlTryAttack implements ActionListener{
 
 
 
-}
+    }
 }
