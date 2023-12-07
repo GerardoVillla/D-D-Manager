@@ -7,6 +7,7 @@ package model;
 public abstract class Item {
     protected String name;
     protected String description;
+    protected int price;
     
     public Item(String name, String description, int price) {
     	this.name=name;

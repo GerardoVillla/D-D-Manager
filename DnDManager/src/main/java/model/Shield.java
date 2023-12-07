@@ -12,3 +12,4 @@ public class Shield extends Equippable {
 		this.defense=defense;
 		// TODO Auto-generated constructor stub
 }
+}
