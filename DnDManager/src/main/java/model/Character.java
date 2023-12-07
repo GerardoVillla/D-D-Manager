@@ -30,7 +30,12 @@ public class Character {
     private Item armorSlot;
     private int money;
     private int CA;
-
+    
+    //Constructor de prueba
+    public Character() {
+    	this.storage= new Storage();
+    }
+    
     public void equipWeapon(Weapon weapon){
         if(this.weaponSlot != null){
             this.weaponSlot = weapon;

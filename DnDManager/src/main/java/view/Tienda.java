@@ -8,16 +8,39 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+
 import javax.swing.JSplitPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.BorderFactory;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import model.Character;
+import model.Equippable;
+import model.LightArmor;
+import model.Shield;
+import model.Storage;
+import model.Usable;
+import model.Weapon;
+import control.ControlTienda;
 
 public class Tienda extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JScrollPane JScrollPane;
+	private JTable Equiptable;
+	private JTable Consumibletable;
+	private JTable Inventorytable;
+	private DefaultTableModel modelE;
+	private DefaultTableModel modelU;
+	private DefaultTableModel modelI;
 
 	/**
 	 * Launch the application.
@@ -68,29 +91,88 @@ public class Tienda extends JFrame {
 		lblEquipables.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		panel.add(lblEquipables);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(30, 51, 168, 290);
-		panel.add(scrollPane);
-		
 		JLabel lblConsumibles = new JLabel("Consumibles");
 		lblConsumibles.setForeground(Color.BLACK);
 		lblConsumibles.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		lblConsumibles.setBounds(275, 19, 94, 22);
 		panel.add(lblConsumibles);
 		
-		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(234, 51, 166, 290);
-		panel.add(scrollPane_2);
+		JScrollPane scrollPaneEquip = new JScrollPane();
+		scrollPaneEquip.setBounds(30, 52, 168, 289);
+		panel.add(scrollPaneEquip);
+		
+		Equiptable = new JTable();
+		scrollPaneEquip.setViewportView(Equiptable);
+		modelE =new DefaultTableModel();
+		Equiptable.setModel(modelE);
+		modelE.addColumn("Objeto");
+		modelE.addColumn("Precio");
+		
+		//
+		ArrayList<Equippable> Equipables = new ArrayList<Equippable>();
+		Weapon Sword = new Weapon("Espada","Arma basica de rango medio-corto",100,true,1,6,35);
+		Shield SmallShield = new Shield("Escudo pequeño", "Escudo de tamaño mediano capaz de cubrir el torso",140,true,1,10,50);
+		LightArmor LeatherArmor = new LightArmor("Armadura de Cuero", "Armadura sencilla de cuero",75,true,1,8,15);
+		Equipables.add(Sword);
+		Equipables.add(SmallShield);
+		Equipables.add(LeatherArmor);
+		//
+		System.out.println(Equipables.size());
+		for(Equippable Equipable: Equipables) {
+			
+			Object[] fila = new Object[3];
+			fila[0]=Equipable.getName();
+			fila[1]=Equipable.getPrice();
+			
+			modelE.addRow(fila);
+		}
+			Equiptable.setEnabled(false);
+			Equiptable.getColumnModel().getColumn(0).setPreferredWidth(100);
+			Equiptable.getColumnModel().getColumn(1).setPreferredWidth(50);
+			scrollPaneEquip.setViewportView(Equiptable);
+		
+		JScrollPane scrollPaneConsu = new JScrollPane();
+		scrollPaneConsu.setBounds(234, 52, 168, 290);
+		panel.add(scrollPaneConsu);
+		
+		
+		//
+		
+		Consumibletable = new JTable();
+		scrollPaneConsu.setViewportView(Consumibletable);
+		modelU=new DefaultTableModel();
+		Consumibletable.setModel(modelU);
+		modelU.addColumn("Objeto");
+		modelU.addColumn("Precio");
+		ArrayList<Usable> Usables = new ArrayList<Usable>();
+		Usable HealingPotion = new Usable("Pocion Curativa", "Pocion de un solo uso que regenera una buena parte de la vida",125,1);
+		Usable Potion2 = new Usable("Pocion reusable", "Cura menos pero tiene mas usos",115,2);
+		Usable Potion3 = new Usable("Pocion S", "Pocion de un solo uso que regenera una buena parte de la vida",200,3);
+		Usable Potion4 = new Usable("Pocion 1", "Pocion de un solo uso que regenera una buena parte de la vida",175,2);
+		Usables.add(HealingPotion);
+		Usables.add(Potion2);
+		Usables.add(Potion3);
+		Usables.add(Potion4);
+		
+		System.out.println(Usables.size());
+		for(Usable Usable: Usables) {
+			Object[] fila = new Object[4];
+			fila[0]=Usable.getName();
+			fila[1]=Usable.getPrice();
+			
+			modelU.addRow(fila);
+		}
+		Consumibletable.setEnabled(false);
+		Consumibletable.getColumnModel().getColumn(0).setPreferredWidth(100);
+		Consumibletable.getColumnModel().getColumn(1).setPreferredWidth(50);
+		panel.add(scrollPaneConsu);
+		
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(157, 60, 255));
 		panel_1.setBounds(510, 58, 234, 372);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
-		
-		JScrollPane scrollPane_3 = new JScrollPane();
-		scrollPane_3.setBounds(25, 84, 184, 190);
-		panel_1.add(scrollPane_3);
 		
 		JLabel lblOro = new JLabel("Oro:");
 		lblOro.setForeground(Color.BLACK);
@@ -125,6 +207,43 @@ public class Tienda extends JFrame {
 		lblNewLabel.setBounds(88, 19, 58, 22);
 		panel_1.add(lblNewLabel);
 		
+		JScrollPane scrollPaneInvent = new JScrollPane();
+		scrollPaneInvent.setBounds(25, 84, 184, 190);
+		panel_1.add(scrollPaneInvent);
+		
+		Inventorytable = new JTable();
+		scrollPaneInvent.setViewportView(Inventorytable);
+		modelI=new DefaultTableModel();
+		Inventorytable.setModel(modelI);
+		modelI.addColumn("Objeto");
+		modelI.addColumn("Precio");
+		
+		Character C = new Character();
+		C.getStorage().addEquippableItem(LeatherArmor);
+		C.getStorage().addUsableItem(Potion3);
+		C.getStorage().addUsableItem(Potion4);
+		C.getStorage().addEquippableItem(Sword);
+		
+		
+		for(Usable Usable: C.getStorage().getUsableitems()) {
+			Object[] fila = new Object[C.getStorage().getSizeUsable()];
+			fila[0]=Usable.getName();
+			fila[1]=Usable.getPrice();
+			
+			modelI.addRow(fila);
+		}
+		for(Equippable Equippable: C.getStorage().getEquippableitems()) {
+			Object[] fila = new Object[C.getStorage().getSizeEquippable()];
+			fila[0]=Equippable.getName();
+			fila[1]=Equippable.getPrice();
+			
+			modelI.addRow(fila);
+		}
+		Inventorytable.setEnabled(false);
+		Inventorytable.getColumnModel().getColumn(0).setPreferredWidth(100);
+		Inventorytable.getColumnModel().getColumn(1).setPreferredWidth(50);
+		scrollPaneInvent.setViewportView(Inventorytable);
+		
 		JLabel lblPersonaje = new JLabel("Personaje\r\n");
 		lblPersonaje.setForeground(Color.BLACK);
 		lblPersonaje.setFont(new Font("Segoe UI", Font.PLAIN, 30));
@@ -132,4 +251,18 @@ public class Tienda extends JFrame {
 		lblPersonaje.setBounds(562, 10, 130, 41);
 		contentPane.add(lblPersonaje);
 	}
+
+	public JTable getEquiptable() {
+		return Equiptable;
+	}
+
+	public JTable getConsumibletable() {
+		return Consumibletable;
+	}
+
+	public JTable getInventorytable() {
+		return Inventorytable;
+	}
+
+	
 }
