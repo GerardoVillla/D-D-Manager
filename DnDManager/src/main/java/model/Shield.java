@@ -11,5 +11,9 @@ public class Shield extends Equippable {
 		super(name, description, price, status, diceNum, facesNum);
 		this.defense=defense;
 		// TODO Auto-generated constructor stub
+<<<<<<< HEAD
 }
+=======
+    }
+>>>>>>> a960ef2e999e4ba1255eba9f20d10d890caf235a
 }

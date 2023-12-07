@@ -14,6 +14,8 @@ public abstract class Item {
     	this.description=description;
     	this.price=price;
     }
+    
+    
 	public String getName() {
 		return name;
 	}
