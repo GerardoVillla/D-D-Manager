@@ -20,7 +20,7 @@ import javax.swing.border.EmptyBorder;
 
 public class Creacion_Personaje extends JFrame {
 
-	private static final long serialVersionUID = 1L;
+	/*private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField HP;
 	private JTextField nombre;
@@ -31,7 +31,27 @@ public class Creacion_Personaje extends JFrame {
 	private JComboBox comboBoxInt;
 	private JComboBox comboBoxSab;
 	private JComboBox comboBoxCar;
-	private JComboBox lvl;
+	private JComboBox lvl;*/
+
+	/**
+	 * Launch the application.
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField HP;
+	private JTextField nombre;
+	private JButton finalizar;
+	private JComboBox<Object> comboBoxFue;
+	private JComboBox<Integer> comboBoxDes;
+	private JComboBox<Integer> comboBoxCons;
+	private JComboBox<Integer> comboBoxInt;
+	private JComboBox<Integer> comboBoxSab;
+	private JComboBox<Integer> comboBoxCar;
+	private JComboBox<Integer> lvl;
+	private JComboBox<String> comboBoxRaza;
+	private JComboBox<String> comboBoxClase;
+
+	
 
 	/**
 	 * Launch the application.
@@ -77,12 +97,12 @@ public class Creacion_Personaje extends JFrame {
 		JLabel lblIngresaLosAtributos_1 = new JLabel("DESTREZA\r\n");
 		lblIngresaLosAtributos_1.setForeground(Color.WHITE);
 		lblIngresaLosAtributos_1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		lblIngresaLosAtributos_1.setBounds(22, 244, 89, 30);
+		lblIngresaLosAtributos_1.setBounds(22, 230, 89, 30);
 		contentPane.add(lblIngresaLosAtributos_1);
 		
 		HP = new JTextField();
-		HP.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		HP.setBounds(170, 383, 122, 24);
+		HP.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		HP.setBounds(170, 343, 122, 24);
 		contentPane.add(HP);
 		HP.setColumns(10);
 		
@@ -102,18 +122,21 @@ public class Creacion_Personaje extends JFrame {
 		JLabel lblIngresaLosAtributos_1_1 = new JLabel("NIVEL\r\n");
 		lblIngresaLosAtributos_1_1.setForeground(Color.WHITE);
 		lblIngresaLosAtributos_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		lblIngresaLosAtributos_1_1.setBounds(343, 380, 50, 30);
+		lblIngresaLosAtributos_1_1.setBounds(343, 340, 50, 30);
 		contentPane.add(lblIngresaLosAtributos_1_1);
 		
-		lvl = new JComboBox();
+		lvl = new JComboBox<Integer>();
 		lvl.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		lvl.setBounds(421, 384, 57, 24);
+		lvl.setBounds(421, 343, 57, 24);
+		for(int i=1;i<=20;i++) {
+			lvl.addItem(i);
+		}
 		contentPane.add(lvl);
 		
 		JLabel lblNewLabel_1 = new JLabel("PUNTOS DE VIDA");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(22, 380, 146, 30);
+		lblNewLabel_1.setBounds(22, 340, 131, 30);
 		contentPane.add(lblNewLabel_1);
 		
 		nombre = new JTextField();
@@ -137,19 +160,19 @@ public class Creacion_Personaje extends JFrame {
 		JLabel lblIngresaLosAtributos_1_4 = new JLabel("CONSTITUCION\r\n");
 		lblIngresaLosAtributos_1_4.setForeground(Color.WHITE);
 		lblIngresaLosAtributos_1_4.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		lblIngresaLosAtributos_1_4.setBounds(22, 313, 112, 30);
+		lblIngresaLosAtributos_1_4.setBounds(22, 285, 112, 30);
 		contentPane.add(lblIngresaLosAtributos_1_4);
 		
 		JLabel lblIngresaLosAtributos_1_4_1 = new JLabel("SABIDURIA");
 		lblIngresaLosAtributos_1_4_1.setForeground(Color.WHITE);
 		lblIngresaLosAtributos_1_4_1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		lblIngresaLosAtributos_1_4_1.setBounds(287, 244, 112, 30);
+		lblIngresaLosAtributos_1_4_1.setBounds(287, 230, 112, 30);
 		contentPane.add(lblIngresaLosAtributos_1_4_1);
 		
 		JLabel lblIngresaLosAtributos_1_4_2 = new JLabel("CARISMA");
 		lblIngresaLosAtributos_1_4_2.setForeground(Color.WHITE);
 		lblIngresaLosAtributos_1_4_2.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		lblIngresaLosAtributos_1_4_2.setBounds(287, 313, 112, 30);
+		lblIngresaLosAtributos_1_4_2.setBounds(287, 285, 112, 30);
 		contentPane.add(lblIngresaLosAtributos_1_4_2);
 		
 		JLabel lblIngresaLosAtributos_1_4_3 = new JLabel("INTELIGENCIA");
@@ -167,33 +190,49 @@ public class Creacion_Personaje extends JFrame {
 		comboBoxFue = new JComboBox();
 		comboBoxFue.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		comboBoxFue.setBounds(170, 178, 57, 24);
-		comboBoxFue.addItem(1);
-		comboBoxFue.addItem(2);
+		for(int i=1;i<=20;i++) {
+			comboBoxFue.addItem(i);
+		}
 		contentPane.add(comboBoxFue);
 		
-		comboBoxDes = new JComboBox();
+		comboBoxDes = new JComboBox<Integer>();
 		comboBoxDes.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBoxDes.setBounds(170, 247, 57, 24);
+		comboBoxDes.setBounds(170, 233, 57, 24);
+		for(int i=1;i<=20;i++) {
+			comboBoxDes.addItem(i);
+		}
 		contentPane.add(comboBoxDes);
 		
-		comboBoxCons = new JComboBox();
+		comboBoxCons = new JComboBox<Integer>();
 		comboBoxCons.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBoxCons.setBounds(170, 316, 57, 24);
+		comboBoxCons.setBounds(170, 288, 57, 24);
+		for(int i=1;i<=20;i++) {
+			comboBoxCons.addItem(i);
+		}
 		contentPane.add(comboBoxCons);
 		
-		comboBoxCar = new JComboBox();
+		comboBoxCar = new JComboBox<Integer>();
 		comboBoxCar.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBoxCar.setBounds(421, 316, 57, 24);
+		comboBoxCar.setBounds(421, 288, 57, 24);
+		for(int i=1;i<=20;i++) {
+			comboBoxCar.addItem(i);
+		}
 		contentPane.add(comboBoxCar);
 		
-		comboBoxSab = new JComboBox();
+		comboBoxSab = new JComboBox<Integer>();
 		comboBoxSab.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBoxSab.setBounds(421, 247, 57, 24);
+		comboBoxSab.setBounds(421, 233, 57, 24);
+		for(int i=1;i<=20;i++) {
+			comboBoxSab.addItem(i);
+		}
 		contentPane.add(comboBoxSab);
 		
-		comboBoxInt = new JComboBox();
+		comboBoxInt = new JComboBox<Integer>();
 		comboBoxInt.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		comboBoxInt.setBounds(421, 178, 57, 23);
+		for(int i=1;i<=20;i++) {
+			comboBoxInt.addItem(i);
+		}
 		contentPane.add(comboBoxInt);
 		
 		JLabel Imagen = new JLabel("");
@@ -203,7 +242,63 @@ public class Creacion_Personaje extends JFrame {
 		ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(Imagen.getWidth(), Imagen.getHeight(), Image.SCALE_SMOOTH));
 		Imagen.setIcon(img);
 		contentPane.add(Imagen);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("RAZA");
+		lblNewLabel_1_1.setForeground(Color.WHITE);
+		lblNewLabel_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		lblNewLabel_1_1.setBounds(22, 395, 50, 30);
+		contentPane.add(lblNewLabel_1_1);
+		
+		comboBoxRaza = new JComboBox<String>();
+		comboBoxRaza.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		comboBoxRaza.setBounds(97, 398, 122, 24);
+		
+		comboBoxRaza.addItem("Dragonborn");
+		comboBoxRaza.addItem("Dwarf");
+		comboBoxRaza.addItem("Elf");
+		comboBoxRaza.addItem("Gnome");
+		comboBoxRaza.addItem("Half-Elf");
+		comboBoxRaza.addItem("Half-Orc");
+		comboBoxRaza.addItem("Human");
+		comboBoxRaza.addItem("Halfling");
+		comboBoxRaza.addItem("Tiefling");
+		contentPane.add(comboBoxRaza);
+		
+		JLabel LabelClase = new JLabel("CLASE");
+		LabelClase.setForeground(Color.WHITE);
+		LabelClase.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		LabelClase.setBounds(266, 395, 50, 30);
+		contentPane.add(LabelClase);
+		
+		comboBoxClase = new JComboBox<String>();
+		comboBoxClase.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		comboBoxClase.setBounds(356, 398, 122, 24);
+		comboBoxClase.addItem("Barbarian");
+		comboBoxClase.addItem("Bard");
+		comboBoxClase.addItem("Cleric");
+		comboBoxClase.addItem("Druid");
+		comboBoxClase.addItem("Fighter");
+		comboBoxClase.addItem("Monk");
+		comboBoxClase.addItem("Paladin");
+		comboBoxClase.addItem("Ranger");
+		comboBoxClase.addItem("Rogue");
+		comboBoxClase.addItem("Sourcerer");
+		comboBoxClase.addItem("Warlock");
+		comboBoxRaza.addItem("Wizard");
+		contentPane.add(comboBoxClase);
+		
+		
 	}
+
+	public JComboBox getComboBoxClase() {
+		return comboBoxClase;
+	}
+
+	public void setComboBoxClase(JComboBox comboBoxClase) {
+		this.comboBoxClase = comboBoxClase;
+	}
+
+	
 
 	public JButton getFinalizar() {
 		return finalizar;
@@ -278,5 +373,12 @@ public class Creacion_Personaje extends JFrame {
 	
 	public JComboBox getLvl() {
 		return this.lvl;
+	}
+	public void setComboBoxRaza(JComboBox comboBoxRaza) {
+		this.comboBoxRaza = comboBoxRaza;
+	}
+
+	public JComboBox getComboBoxRaza() {
+		return comboBoxRaza;
 	}
 }
