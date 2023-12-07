@@ -13,6 +13,12 @@ public abstract class Equippable extends Item{
     protected int diceNum;
     protected int facesNum;
     
+    public Equippable(String name, String description, int price, boolean status,int diceNum, int facesNum) {
+    	super(name,description,price);
+    	this.status=status;
+    	this.diceNum=diceNum;
+    	this.facesNum=facesNum;
+    }
     /*
     public void equipar(){
     

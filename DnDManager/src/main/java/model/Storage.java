@@ -9,7 +9,11 @@ public class Storage {
 private ArrayList<Usable> usableitems;
 private ArrayList<Equippable> equippableitems;
 
-
+public Storage() {
+	this.usableitems= new ArrayList<Usable>();
+	this.equippableitems = new ArrayList<Equippable>();
+	
+}
 
 public void addUsableItem(Usable usableItem){
     this.usableitems.add(usableItem);
@@ -37,7 +41,18 @@ public Usable getUsableItem(int index){
 public Equippable getEquippableItem(int index){
     return this.equippableitems.get(index);
 }
-
+public int getSizeEquippable() {
+	return equippableitems.size();
+}
+public int getSizeUsable() {
+	return usableitems.size();
+}
+public ArrayList<Usable> getUsableitems() {
+	return usableitems;
+}
+public ArrayList<Equippable> getEquippableitems() {
+	return equippableitems;
+}
 /*
 public void addObjeto(){
 
