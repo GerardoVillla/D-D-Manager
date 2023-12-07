@@ -10,7 +10,9 @@ public class Test {
 		// TODO Auto-generated method stub
 		CharacterDao cd=new CharacterDao();
 		StoreDao sd=new StoreDao();
-		
+		StartView sv= new StartView();
+		ControlStartView csv=new ControlStartView(cd,sd, sv);
+		sv.setVisible(true);
 
 	}
 
