@@ -94,14 +94,5 @@ public class CharacterDao {
 			this.characters = characters;
 		}
 		
-		
-		public static void main(String[] args) {
-			CharacterDao c = new CharacterDao();
-			c.getCharacters().get(1).setCharacterName("PEPA");
-			c.updateJsonFile();
-			for (Character character : c.getCharacters()) {
-				System.out.println(character.toString());
-			}
-		}
 
 }
