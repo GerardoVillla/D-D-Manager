@@ -17,6 +17,7 @@ import javax.swing.event.ListSelectionListener;
 
 import control.W2Controller;
 import model.Character;
+import model.Item;
 
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
@@ -68,7 +69,10 @@ public class Window2 extends JFrame {
 	private JButton btnBuySell;
 	private JList<Character> list;
 	private DefaultListModel dlm;
-	private JButton btnAddCh;
+	private DefaultListModel dlm2;
+	private JButton atras;
+	private JScrollPane scrollPane_1;
+	private JList<Item> listItem;
 
 	/**
 	 * Create the frame.
@@ -108,6 +112,7 @@ public class Window2 extends JFrame {
 		list.setForeground(Color.WHITE);
 		list.setFont(new Font("Segoe UI", Font.BOLD, 20));
 		dlm = new DefaultListModel<Character>();
+		dlm2=new DefaultListModel<Item>();
 		list.setBackground(new Color(8, 65, 138));
 		scrollPane.setViewportView(list);
 
@@ -200,7 +205,7 @@ public class Window2 extends JFrame {
 		btnEdit.setContentAreaFilled(false);
 		btnEdit.setFont(new Font("Segoe UI", Font.BOLD, 12));
 		btnEdit.setForeground(Color.WHITE);
-		btnEdit.setBounds(80, 395, 90, 25);
+		btnEdit.setBounds(140, 391, 90, 25);
 		StatsBG.add(btnEdit);
 		
 		btnAttack = new JButton("Atacar");
@@ -284,6 +289,14 @@ public class Window2 extends JFrame {
 		StatsBG.add(CurrentHPValue);
 		CurrentHPValue.setColumns(10);
 		
+		 atras = new JButton("Atrás");
+		atras.setForeground(Color.WHITE);
+		atras.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		atras.setContentAreaFilled(false);
+		atras.setBorder(new LineBorder(Color.WHITE, 2, true));
+		atras.setBounds(30, 393, 90, 25);
+		StatsBG.add(atras);
+		
 		InventoryBG = new JPanel();
 		InventoryBG.setBackground(new Color(8, 65, 138));
 		InventoryBG.setBounds(500, 10, 250, 440);
@@ -305,9 +318,17 @@ public class Window2 extends JFrame {
 		btnBuySell.setBounds(66, 404, 118, 25);
 		InventoryBG.add(btnBuySell);
 		
-		btnAddCh = new JButton("Add Character");
-		btnAddCh.setBounds(66, 66, 104, 23);
-		InventoryBG.add(btnAddCh);
+		scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBackground(new Color(8, 65, 138));
+		scrollPane_1.setBounds(10, 43, 230, 350);
+		InventoryBG.add(scrollPane_1);
+		
+		listItem = new JList<Item>();
+		listItem.setBorder(null);
+		listItem.setForeground(Color.WHITE);
+		listItem.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		listItem.setBackground(new Color(8, 65, 138));
+		scrollPane_1.setViewportView(listItem);
 		
 		Title = new JLabel("Consulta de");
 		Title.setHorizontalAlignment(SwingConstants.CENTER);
@@ -324,13 +345,43 @@ public class Window2 extends JFrame {
 		BG.add(Title2);
 	}
 
-	public JButton getBtnAddCh() {
-		return btnAddCh;
+
+
+	public JScrollPane getScrollPane_1() {
+		return scrollPane_1;
 	}
 
-	public void setBtnAddCh(JButton btnAddCh) {
-		this.btnAddCh = btnAddCh;
+
+
+	public void setScrollPane_1(JScrollPane scrollPane_1) {
+		this.scrollPane_1 = scrollPane_1;
 	}
+
+
+
+	public JList<Item> getListItem() {
+		return listItem;
+	}
+
+
+
+	public void setListItem(JList<Item> listItem) {
+		this.listItem = listItem;
+	}
+
+	
+
+	public DefaultListModel getDlm2() {
+		return dlm2;
+	}
+
+
+
+	public void setDlm2(DefaultListModel dlm2) {
+		this.dlm2 = dlm2;
+	}
+
+
 
 	public DefaultListModel getDlm() {
 		return dlm;
@@ -595,4 +646,17 @@ public class Window2 extends JFrame {
 	public void setTitle2(JLabel title2) {
 		Title2 = title2;
 	}
+
+
+
+	public JButton getAtras() {
+		return atras;
+	}
+
+
+
+	public void setAtras(JButton atras) {
+		this.atras = atras;
+	}
 }
+

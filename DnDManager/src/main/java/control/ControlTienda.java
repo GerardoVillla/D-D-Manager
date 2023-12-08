@@ -1,5 +1,6 @@
 package control;
 
+import dao.*;
 
 
 import java.awt.event.ActionEvent;
@@ -16,8 +17,12 @@ public class ControlTienda implements ActionListener{
 	public Tienda Tienda;
 	private ArrayList<Usable> Consumibles = new ArrayList<Usable>();
 	private ArrayList<Equippable> Equippables = new ArrayList<Equippable>();
+	private CharacterDao cd;
+	private StoreDao sd;
 	
-	public ControlTienda(Character Character, Tienda Tienda) {
+	public ControlTienda(CharacterDao cd, StoreDao sd,Character Character, Tienda Tienda) {
+		this.cd=cd;
+		this.sd=sd;
 		this.Character=Character;
 		this.Tienda=Tienda;
 	}

@@ -42,7 +42,9 @@ public class W2Controller implements ActionListener {
 		w2.getBtnAttack().addActionListener(this);
 		w2.getBtnEdit().addActionListener(this);
 		w2.getBtnBuySell().addActionListener(this);
+		w2.getAtras().addActionListener(this);
 		w2.getList().setModel(w2.getDlm());
+		
 		w2.getList().setCellRenderer(new ListCellRenderer<Character>() {
 		    public Component getListCellRendererComponent(JList<? extends Character> list, Character value, int index, boolean isSelected, boolean cellHasFocus) {
 		        String displayString = value.getCharacterName();
@@ -57,6 +59,7 @@ public class W2Controller implements ActionListener {
 		        return label;
 		    }
 		});
+		
 		w2.getList().addListSelectionListener(new ListSelectionListener() {
 			
 			public void valueChanged(ListSelectionEvent e) {
@@ -75,6 +78,28 @@ public class W2Controller implements ActionListener {
 					w2.getIntelligenceValue().setText(String.valueOf(sc.getIntelligence()));
 					w2.getMaxHPValue().setText(String.valueOf(sc.getMaxHP()));
 					w2.getLevelValue().setText(String.valueOf(sc.getLevel()));
+					
+					for (Item item: sc.getStorage().getEquippableitems()) {
+						w2.getDlm2().addElement(item);
+					}
+					for(Item item: sc.getStorage().getUsableitems()) {
+						w2.getDlm2().addElement(item);
+					}
+					w2.getListItem().setModel(w2.getDlm2());
+					w2.getListItem().setCellRenderer(new ListCellRenderer<Item>() {
+					    public Component getListCellRendererComponent(JList<? extends Item> list, Item value, int index, boolean isSelected, boolean cellHasFocus) {
+					        String displayString = value.getName();
+					        JLabel label = new JLabel(displayString);
+					        if (isSelected) {
+					            label.setBackground(list.getSelectionBackground());
+					            label.setForeground(list.getSelectionForeground());
+					        } else {
+					            label.setBackground(list.getBackground());
+					            label.setForeground(list.getForeground());
+					        }
+					        return label;
+					    }
+					});
 				}
 			}
 		});
@@ -87,7 +112,7 @@ public class W2Controller implements ActionListener {
 			System.out.println("Tirada aleatoria: " + r);
 			//Falta sumarle el modificador del personaje
 		}
-		else if(w2.getBtnAttack() == e.getSource()) {
+		if(w2.getBtnAttack() == e.getSource()) {
 			try {
 				System.out.println("Resultado del ataque:" + this.characters.get(0).attack(10));
 			}catch(Exception ex) {
@@ -96,13 +121,19 @@ public class W2Controller implements ActionListener {
 			
 			
 		}
-		else if(w2.getBtnEdit() == e.getSource()) {
+		if(w2.getBtnEdit() == e.getSource()) {
 			//Sustituir por la ventana de Editar
 			w2.dispose();
 		}
-		else if(w2.getBtnBuySell() == e.getSource()) {
+		if(w2.getBtnBuySell() == e.getSource()) {
 			//Sustituir por la ventana de Tienda
 			w2.dispose();
+		}
+		if(e.getSource()==w2.getAtras()) {
+			StartView st= new StartView();
+            ControlStartView csv=new ControlStartView(this.cd,this.sd,st);
+            st.setVisible(true);
+            w2.dispose();
 		}
 		
 		
