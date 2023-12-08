@@ -16,7 +16,7 @@ import model.Store;
 
 public class StoreDao {
 	//ruta del archivo json
-	private static final String FILE_PATH = "C:/Users/luism/Downloads/DnDManager/DnDManager/src/main/java/files/stores.json";
+	private static final String FILE_PATH = "D:/IGNITER/Documents/Github/D-D-Manager/DnDManager/src/main/java/files/stores.json";
 	 private List<Store> stores;
 	    
 	 
