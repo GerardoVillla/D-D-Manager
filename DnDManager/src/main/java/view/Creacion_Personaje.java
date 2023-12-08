@@ -50,7 +50,7 @@ public class Creacion_Personaje extends JFrame {
 	private JComboBox<Integer> lvl;
 	private JComboBox<String> comboBoxRaza;
 	private JComboBox<String> comboBoxClase;
-
+	private JButton Atras;
 	
 
 	/**
@@ -97,12 +97,12 @@ public class Creacion_Personaje extends JFrame {
 		JLabel lblIngresaLosAtributos_1 = new JLabel("DESTREZA\r\n");
 		lblIngresaLosAtributos_1.setForeground(Color.WHITE);
 		lblIngresaLosAtributos_1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		lblIngresaLosAtributos_1.setBounds(22, 230, 89, 30);
+		lblIngresaLosAtributos_1.setBounds(22, 225, 89, 30);
 		contentPane.add(lblIngresaLosAtributos_1);
 		
 		HP = new JTextField();
 		HP.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		HP.setBounds(170, 343, 122, 24);
+		HP.setBounds(170, 328, 122, 24);
 		contentPane.add(HP);
 		HP.setColumns(10);
 		
@@ -122,12 +122,12 @@ public class Creacion_Personaje extends JFrame {
 		JLabel lblIngresaLosAtributos_1_1 = new JLabel("NIVEL\r\n");
 		lblIngresaLosAtributos_1_1.setForeground(Color.WHITE);
 		lblIngresaLosAtributos_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		lblIngresaLosAtributos_1_1.setBounds(343, 340, 50, 30);
+		lblIngresaLosAtributos_1_1.setBounds(343, 325, 50, 30);
 		contentPane.add(lblIngresaLosAtributos_1_1);
 		
 		lvl = new JComboBox<Integer>();
 		lvl.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		lvl.setBounds(421, 343, 57, 24);
+		lvl.setBounds(421, 328, 57, 24);
 		for(int i=1;i<=20;i++) {
 			lvl.addItem(i);
 		}
@@ -136,7 +136,7 @@ public class Creacion_Personaje extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("PUNTOS DE VIDA");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(22, 340, 131, 30);
+		lblNewLabel_1.setBounds(22, 325, 131, 30);
 		contentPane.add(lblNewLabel_1);
 		
 		nombre = new JTextField();
@@ -160,19 +160,19 @@ public class Creacion_Personaje extends JFrame {
 		JLabel lblIngresaLosAtributos_1_4 = new JLabel("CONSTITUCION\r\n");
 		lblIngresaLosAtributos_1_4.setForeground(Color.WHITE);
 		lblIngresaLosAtributos_1_4.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		lblIngresaLosAtributos_1_4.setBounds(22, 285, 112, 30);
+		lblIngresaLosAtributos_1_4.setBounds(22, 275, 112, 30);
 		contentPane.add(lblIngresaLosAtributos_1_4);
 		
 		JLabel lblIngresaLosAtributos_1_4_1 = new JLabel("SABIDURIA");
 		lblIngresaLosAtributos_1_4_1.setForeground(Color.WHITE);
 		lblIngresaLosAtributos_1_4_1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		lblIngresaLosAtributos_1_4_1.setBounds(287, 230, 112, 30);
+		lblIngresaLosAtributos_1_4_1.setBounds(287, 225, 112, 30);
 		contentPane.add(lblIngresaLosAtributos_1_4_1);
 		
 		JLabel lblIngresaLosAtributos_1_4_2 = new JLabel("CARISMA");
 		lblIngresaLosAtributos_1_4_2.setForeground(Color.WHITE);
 		lblIngresaLosAtributos_1_4_2.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		lblIngresaLosAtributos_1_4_2.setBounds(287, 285, 112, 30);
+		lblIngresaLosAtributos_1_4_2.setBounds(287, 275, 112, 30);
 		contentPane.add(lblIngresaLosAtributos_1_4_2);
 		
 		JLabel lblIngresaLosAtributos_1_4_3 = new JLabel("INTELIGENCIA");
@@ -197,7 +197,7 @@ public class Creacion_Personaje extends JFrame {
 		
 		comboBoxDes = new JComboBox<Integer>();
 		comboBoxDes.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBoxDes.setBounds(170, 233, 57, 24);
+		comboBoxDes.setBounds(170, 228, 57, 24);
 		for(int i=1;i<=20;i++) {
 			comboBoxDes.addItem(i);
 		}
@@ -205,7 +205,7 @@ public class Creacion_Personaje extends JFrame {
 		
 		comboBoxCons = new JComboBox<Integer>();
 		comboBoxCons.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBoxCons.setBounds(170, 288, 57, 24);
+		comboBoxCons.setBounds(170, 278, 57, 24);
 		for(int i=1;i<=20;i++) {
 			comboBoxCons.addItem(i);
 		}
@@ -213,7 +213,7 @@ public class Creacion_Personaje extends JFrame {
 		
 		comboBoxCar = new JComboBox<Integer>();
 		comboBoxCar.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBoxCar.setBounds(421, 288, 57, 24);
+		comboBoxCar.setBounds(421, 278, 57, 24);
 		for(int i=1;i<=20;i++) {
 			comboBoxCar.addItem(i);
 		}
@@ -221,7 +221,7 @@ public class Creacion_Personaje extends JFrame {
 		
 		comboBoxSab = new JComboBox<Integer>();
 		comboBoxSab.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBoxSab.setBounds(421, 233, 57, 24);
+		comboBoxSab.setBounds(421, 228, 57, 24);
 		for(int i=1;i<=20;i++) {
 			comboBoxSab.addItem(i);
 		}
@@ -246,12 +246,12 @@ public class Creacion_Personaje extends JFrame {
 		JLabel lblNewLabel_1_1 = new JLabel("RAZA");
 		lblNewLabel_1_1.setForeground(Color.WHITE);
 		lblNewLabel_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		lblNewLabel_1_1.setBounds(22, 395, 50, 30);
+		lblNewLabel_1_1.setBounds(22, 375, 50, 30);
 		contentPane.add(lblNewLabel_1_1);
 		
 		comboBoxRaza = new JComboBox<String>();
 		comboBoxRaza.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBoxRaza.setBounds(97, 398, 122, 24);
+		comboBoxRaza.setBounds(97, 378, 122, 24);
 		
 		comboBoxRaza.addItem("Dragonborn");
 		comboBoxRaza.addItem("Dwarf");
@@ -267,12 +267,12 @@ public class Creacion_Personaje extends JFrame {
 		JLabel LabelClase = new JLabel("CLASE");
 		LabelClase.setForeground(Color.WHITE);
 		LabelClase.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		LabelClase.setBounds(266, 395, 50, 30);
+		LabelClase.setBounds(266, 375, 50, 30);
 		contentPane.add(LabelClase);
 		
 		comboBoxClase = new JComboBox<String>();
 		comboBoxClase.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		comboBoxClase.setBounds(356, 398, 122, 24);
+		comboBoxClase.setBounds(356, 378, 122, 24);
 		comboBoxClase.addItem("Barbarian");
 		comboBoxClase.addItem("Bard");
 		comboBoxClase.addItem("Cleric");
@@ -287,7 +287,23 @@ public class Creacion_Personaje extends JFrame {
 		comboBoxRaza.addItem("Wizard");
 		contentPane.add(comboBoxClase);
 		
+		Atras = new JButton("ATRAS\r\n");
+		Atras.setForeground(Color.WHITE);
+		Atras.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		Atras.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255)));
+		Atras.setBackground(new Color(0, 125, 0));
+		Atras.setBounds(357, 417, 121, 31);
+		Atras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		contentPane.add(Atras);
 		
+		
+	}
+
+	public JButton getAtras() {
+		return Atras;
 	}
 
 	public JComboBox getComboBoxClase() {

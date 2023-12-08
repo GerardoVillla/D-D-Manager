@@ -116,11 +116,19 @@ public class W2Controller implements ActionListener {
 			//Falta sumarle el modificador del personaje
 		}
 		if(w2.getBtnAttack() == e.getSource()) {
+			TryAttackView tav=new  TryAttackView();
+			ControlTryAttack cta= new ControlTryAttack(cd,sd,tav,index);
+			tav.setVisible(true);
+			
+			
+			
+			/*
 			try {
 				System.out.println("Resultado del ataque:" + this.characters.get(0).attack(10));
 			}catch(Exception ex) {
 				System.out.println("Lo sentimos, aun no hay personajes para atacar");
 			}
+			*/
 			
 			
 		}

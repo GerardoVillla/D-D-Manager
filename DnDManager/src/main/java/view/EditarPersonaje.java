@@ -17,7 +17,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
 
 public class EditarPersonaje extends JFrame {
 
@@ -25,7 +24,8 @@ public class EditarPersonaje extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField HP;
-	private JButton btnFinalizar;
+	private JButton finalizar;
+	private JButton atras;
 	private JComboBox<Object> comboBoxFue;
 	private JComboBox<Integer> comboBoxDes;
 	private JComboBox<Integer> comboBoxCons;
@@ -90,18 +90,17 @@ public class EditarPersonaje extends JFrame {
 		contentPane.add(HP);
 		HP.setColumns(10);
 		
-		btnFinalizar = new JButton("FINALIZAR");
-		btnFinalizar.setContentAreaFilled(false);
-		btnFinalizar.setForeground(new Color(255, 255, 255));
-		btnFinalizar.setBorder(new LineBorder(new Color(255, 255, 255), 2, true));
-		btnFinalizar.addActionListener(new ActionListener() {
+		finalizar = new JButton("FINALIZAR");
+		finalizar.setForeground(new Color(255, 255, 255));
+		finalizar.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255)));
+		finalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnFinalizar.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		btnFinalizar.setBackground(new Color(128, 0, 0));
-		btnFinalizar.setBounds(357, 392, 121, 31);
-		contentPane.add(btnFinalizar);
+		finalizar.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		finalizar.setBackground(new Color(128, 0, 0));
+		finalizar.setBounds(357, 370, 121, 31);
+		contentPane.add(finalizar);
 		
 		JLabel NivelLabel = new JLabel("NIVEL\r\n");
 		NivelLabel.setForeground(Color.WHITE);
@@ -227,27 +226,27 @@ public class EditarPersonaje extends JFrame {
 		Oro.setBounds(170, 393, 122, 24);
 		contentPane.add(Oro);
 		
+		 atras = new JButton("ATRAS");
+		atras.setForeground(Color.WHITE);
+		atras.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		atras.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255)));
+		atras.setBackground(new Color(128, 0, 0));
+		atras.setBounds(357, 411, 121, 31);
+		contentPane.add(atras);
 		
-	}
-
-	public JTextField getTextField() {
-		return Oro;
+		
 	}
 
 	public JTextField getOro() {
 		return Oro;
 	}
 
-	public void setOro(JTextField oro) {
-		Oro = oro;
+	public JButton getFinalizar() {
+		return finalizar;
 	}
 
-	public JButton getBtnFinalizar() {
-		return btnFinalizar;
-	}
-
-	public void setBtnFinalizar(JButton finalizar) {
-		this.btnFinalizar = finalizar;
+	public void setFinalizar(JButton finalizar) {
+		this.finalizar = finalizar;
 	}
 	public JTextField getHP() {
 		return HP;
@@ -275,6 +274,15 @@ public class EditarPersonaje extends JFrame {
 
 	public void setComboBoxCons(JComboBox comboBoxCons) {
 		this.comboBoxCons = comboBoxCons;
+	}
+
+	
+	public JButton getAtras() {
+		return atras;
+	}
+
+	public void setAtras(JButton atras) {
+		this.atras = atras;
 	}
 
 	public JComboBox getComboBoxInt() {

@@ -12,14 +12,18 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class TryAttackView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JButton tryAttack;
+	private JTextField caValue;
+	private JButton btnTryAttack;
 	private JButton btnCancelar;
+	private JLabel regMessage;
 
 	/**
 	 * Launch the application.
@@ -55,38 +59,52 @@ public class TryAttackView extends JFrame {
 		lblNewLabel.setBounds(96, 11, 271, 65);
 		contentPane.add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(139, 111, 159, 41);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		caValue = new JTextField();
+		caValue.setBounds(141, 76, 159, 41);
+		contentPane.add(caValue);
+		caValue.setColumns(10);
 		
-		this.tryAttack = new JButton("Atacar");
-		this.tryAttack.setBounds(56, 179, 147, 41);
-		contentPane.add(tryAttack);
+		btnTryAttack = new JButton("Atacar");
+		btnTryAttack.setBounds(55, 144, 147, 41);
+		contentPane.add(btnTryAttack);
 		
-		this.btnCancelar = new JButton("Cancelar");
-		this.btnCancelar.addActionListener(new ActionListener() {
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		this.btnCancelar.setBounds(242, 179, 147, 41);
+		btnCancelar.setBounds(226, 144, 147, 41);
 		contentPane.add(this.btnCancelar);
+		
+		regMessage = new JLabel("");
+		regMessage.setFont(new Font("Segoe UI", Font.BOLD, 18));
+		regMessage.setHorizontalAlignment(SwingConstants.CENTER);
+		regMessage.setBounds(119, 212, 190, 38);
+		contentPane.add(regMessage);
 	}
 
-	public JButton getTryAttack() {
-		return tryAttack;
+	public JLabel getRegMessage() {
+		return regMessage;
 	}
 
-	public void setTryAttack(JButton tryAttack) {
-		this.tryAttack = tryAttack;
+	public void setRegMessage(JLabel regMessage) {
+		this.regMessage = regMessage;
+	}
+
+	public JButton getBtnTryAttack() {
+		return btnTryAttack;
+	}
+
+	public void setBtnTryAttack(JButton tryAttack) {
+		this.btnTryAttack = tryAttack;
 	}
 
 	public JTextField getTextField() {
-		return textField;
+		return caValue;
 	}
 
 	public void setTextField(JTextField textField) {
-		this.textField = textField;
+		this.caValue = textField;
 	}
 
 	public JButton getBtnCancelar() {
@@ -99,5 +117,3 @@ public class TryAttackView extends JFrame {
 	
 	
 }
-
-

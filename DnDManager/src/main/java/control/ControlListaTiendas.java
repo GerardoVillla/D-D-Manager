@@ -58,7 +58,7 @@ public class ControlListaTiendas implements ActionListener{
 					
 					//Store sc = (Store) ltv.getList().getSelectedValue();
 					int index = ltv.getList().getSelectedIndex();
-					System.out.println(index);
+					
 					StoreObjectView sov= new StoreObjectView();
 					ControlStoreObject csb=new ControlStoreObject( cd, sd,  sov,  index);
 					sov.setVisible(true);
