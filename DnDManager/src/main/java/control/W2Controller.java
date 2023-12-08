@@ -63,7 +63,10 @@ public class W2Controller implements ActionListener {
 					
 				
 				if(!e.getValueIsAdjusting()) {
-					Character sc = (model.Character) w2.getList().getSelectedValue();
+					Character sc = (Character) w2.getList().getSelectedValue();
+					//System.out.println("Fuerza igual a "+sc.getStrength());
+					//System.out.println(sc.getRace().getName());
+					
 					w2.getStrenghtValue().setText(String.valueOf(sc.getStrength()));
 					w2.getDexterityValue().setText(String.valueOf(sc.getDexterity()));
 					w2.getConstitutionValue().setText(String.valueOf(sc.getConstitution()));

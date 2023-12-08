@@ -6,7 +6,7 @@ package model;
  */
 public class Dwarf extends Race{
     public Dwarf(){
-        super();
+        super("Enano");
         this.modifyConstitution = 2;
     }
 }

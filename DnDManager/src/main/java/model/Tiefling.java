@@ -6,7 +6,7 @@ package model;
  */
 public class Tiefling extends Race{
     public Tiefling(){
-        super();
+        super("Tiefling");
         this.modifyCharisma = 2;
         this.modifyIntelligence = 1;
     }

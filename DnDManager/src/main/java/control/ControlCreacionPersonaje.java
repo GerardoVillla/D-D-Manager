@@ -20,7 +20,7 @@ public class ControlCreacionPersonaje implements ActionListener {
 	public CharacterDao cd;
 	public StoreDao sd;
     public Creacion_Personaje creacionPersonaje;
-    public StartView StartView; //Era para abrir la ventana de inicio pero la marca nula
+    
     
     public ControlCreacionPersonaje(StoreDao sd,CharacterDao cd, Creacion_Personaje creacionPersonaje) {
         this.cd=cd;
@@ -43,60 +43,87 @@ public class ControlCreacionPersonaje implements ActionListener {
             int lvl= Integer.parseInt(String.valueOf(this.creacionPersonaje.getLvl().getSelectedItem()));
             String raza = String.valueOf(this.creacionPersonaje.getComboBoxRaza().getSelectedItem());
             String clase = String.valueOf(this.creacionPersonaje.getComboBoxClase().getSelectedItem());
-            Race race=new Race();
+
+            Character character=null;
             
             switch(raza) {
             case "Dragonborn":
-            	race=new Dragonborn();
+            	 character = new Character(new Dragonborn(), name, fuerza,destreza,sabiduria , carisma, constitucion, inteligencia, hp,lvl);
+            	 break;
             case "Dwarf":
-            	race=new Dwarf();       
+            	 character = new Character(new Dwarf(), name, fuerza,destreza,sabiduria , carisma, constitucion, inteligencia, hp,lvl); 
+            	 break;
             case "Elf":
-            	race = new Elf();  
+            	character = new Character(new Elf(), name, fuerza,destreza,sabiduria , carisma, constitucion, inteligencia, hp,lvl); 
+            	break;
             case "Gnome":
-            	race= new Gnome(); 
+            	character = new Character(new Gnome(), name, fuerza,destreza,sabiduria , carisma, constitucion, inteligencia, hp,lvl); 
+            	break;
             case "Half-Elf":
-            	race=new HalfElf();
+            	character = new Character(new HalfElf(), name, fuerza,destreza,sabiduria , carisma, constitucion, inteligencia, hp,lvl);
+            	break;
             case "Half-Orc":
-            	race=new HalfOrc(); 
+            	character = new Character(new HalfOrc(), name, fuerza,destreza,sabiduria , carisma, constitucion, inteligencia, hp,lvl); 
+            	break;
             case "Human":
-            	race = new Human(); 
+            	character = new Character(new Human(), name, fuerza,destreza,sabiduria , carisma, constitucion, inteligencia, hp,lvl); 
+            	//System.out.println("Raza seleccionada: " + raza);
+            	//System.out.println("Raza del personaje: " + character.getRace().getName());
+
+            	break;
+            	
             case "Halfling":
-            	race = new Halfling();
+            	character = new Character(new Halfling(), name, fuerza,destreza,sabiduria , carisma, constitucion, inteligencia, hp,lvl);
+            	break;
             case "Tiefling":
-            	race=new Tiefling(); 
+            	character = new Character(new Tiefling(), name, fuerza,destreza,sabiduria , carisma, constitucion, inteligencia, hp,lvl); 
+            	break;
             }
-            Character Character = new Character(race, name, fuerza,destreza,sabiduria , carisma, constitucion, inteligencia, hp,lvl);
+            
+            //System.out.println(character.getRace().getName());
             
             switch(clase) {
             case "Barbarian":
-            	Character.setCalss(new Barbarian());
+            	character.setCalss(new Barbarian());
+            	break;
             case "Bard":
-            	Character.setCalss(new Bard());
+            	character.setCalss(new Bard());
+            	break;
             case "Cleric":
-            	Character.setCalss(new Cleric());
+            	character.setCalss(new Cleric());
+            	break;
             case "Druid":
-            	Character.setCalss(new Druid());
+            	character.setCalss(new Druid());
+            	break;
             case "Fighter":
-            	Character.setCalss(new Fighter());
+            	character.setCalss(new Fighter());
+            	break;
             case "Monk":
-            	Character.setCalss(new Monk());
+            	character.setCalss(new Monk());
+            	break;
             case "Paladin":
-            	Character.setCalss(new Paladin());
+            	character.setCalss(new Paladin());
+            	break;
             case "Ranger":
-            	Character.setCalss(new Ranger());
+            	character.setCalss(new Ranger());
+            	break;
             case "Rogue":
-            	Character.setCalss(new Rogue());
+            	character.setCalss(new Rogue());
+            	break;
             case "Sourcerer":
-            	Character.setCalss(new Sourcerer());
+            	character.setCalss(new Sourcerer());
+            	break;
             case "Warlock":
-            	Character.setCalss(new Warlock());
+            	character.setCalss(new Warlock());
+            	break;
             case "Wizard":
-            	Character.setCalss(new Wizard());
+            	character.setCalss(new Wizard());
+            	break;
             }
             
      
             //Characters.add(new Character(raza, clase, name, fuerza,destreza,sabiduria , carisma, constitucion, inteligencia, hp,lvl));
-            this.cd.saveCharacter(Character);
+            this.cd.saveCharacter(character);
             this.creacionPersonaje.dispose();
             
             StartView st= new StartView();

@@ -10,7 +10,7 @@ haga una raza de tipo Raza o una armadura de tipo Armadura)pero no estan marcada
 lo borran si no les gusta
 */
 public class Race {
-    protected String name;
+    protected String name="name";
     protected String description;
 
     protected int modifyCharisma=0;
@@ -19,7 +19,10 @@ public class Race {
     protected int modifyWisdom=0;
     protected int modifyConstitution=0;
     protected int modifyStrength=0;
-
+    
+    public Race(String name) {
+    	this.name=name;
+    }
     public int getModifyCharisma() {
         return modifyCharisma;
     }

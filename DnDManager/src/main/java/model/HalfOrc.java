@@ -6,7 +6,7 @@ package model;
  */
 public class HalfOrc extends Race{
     public HalfOrc(){
-        super();
+        super("SemiOrco");
         this.modifyStrength = 2;
         this.modifyConstitution = 1;
     }
