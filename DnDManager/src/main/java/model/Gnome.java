@@ -6,7 +6,7 @@ package model;
  */
 public class Gnome extends Race{
     public Gnome(){
-        super();
+        super("Gnome");
         this.modifyIntelligence = 2;
     }
 }

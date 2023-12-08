@@ -6,7 +6,7 @@ package model;
  */
 public class HalfElf extends Race{
     public HalfElf(){
-        super();
+        super("Mediano");
         this.modifyCharisma = 2;
     }
 }

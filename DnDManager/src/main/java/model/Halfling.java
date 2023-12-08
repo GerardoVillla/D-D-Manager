@@ -6,7 +6,7 @@ package model;
  */
 public class Halfling extends Race{
     public Halfling(){
-        super();
+        super("Mediano");
         this.modifyDexterity = 2;
     }
 }

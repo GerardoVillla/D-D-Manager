@@ -6,7 +6,7 @@ package model;
  */
 public class Dragonborn extends Race{
     public Dragonborn(){
-        super();
+        super("Dragonborn");
         this.modifyStrength = 2;
         this.modifyCharisma = 1;
     }

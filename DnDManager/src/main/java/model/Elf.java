@@ -8,7 +8,7 @@ public class Elf extends Race{
     
     
     public Elf(){
-        super();
+        super("Elf");
         this.modifyDexterity = 2;
     }
 }

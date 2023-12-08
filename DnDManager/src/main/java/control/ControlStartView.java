@@ -32,6 +32,7 @@ public class ControlStartView implements ActionListener{
 			Window2 w2 = new Window2();
 			W2Controller w2c=new W2Controller(cd,sd,w2);
 			w2.setVisible(true);
+			this.startView.dispose();
 			
 		}
 		
