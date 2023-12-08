@@ -17,6 +17,7 @@ import model.Shield;
 import model.Store;
 import model.Usable;
 import model.Weapon;
+import view.StartView;
 import view.StoreObjectView;
 
 public class ControlStoreObject implements ActionListener{
@@ -35,10 +36,9 @@ public class ControlStoreObject implements ActionListener{
 		this.stores= (ArrayList<Store>) sd.getStores();
 		this.storeObjectView = storeObjectView;
 		this.i=i;
-		System.out.println(this.stores.get(this.i));
-		System.out.println(i);
-		
-		storeObjectView.getBtnAddItem().addActionListener(this);
+	
+		this.storeObjectView.getBtnAddItem().addActionListener(this);
+		this.storeObjectView.getAtras().addActionListener(this);
 		for(Item item: this.stores.get(i).getStorage().getEquippableitems()) {
 			storeObjectView.getDlm().addElement(item);
 		}
@@ -66,23 +66,24 @@ public class ControlStoreObject implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {
 		
-		String name = storeObjectView.getNameValue().getText();
-		String description = storeObjectView.getDescriptionValue().getText();
-		int price = Integer.parseInt(storeObjectView.getPriceValue().getText());
-		int dieN = Integer.parseInt(storeObjectView.getDieNValue().getText());
-		int dieF = Integer.parseInt(storeObjectView.getDieFValue().getText());
-		int shieldValue = Integer.parseInt(storeObjectView.getShieldValue().getText());
-		int armorClass = Integer.parseInt(storeObjectView.getArmorClassValue().getText());
-		int usesLeft = Integer.parseInt(storeObjectView.getUsesValue().getText());
-		int healing = Integer.parseInt(storeObjectView.getHealingValue().getText());
-		String select=String.valueOf(this.storeObjectView.getTipo().getSelectedItem());
+		
 		
 		if(storeObjectView.getBtnAddItem() == e.getSource()) {
+			String name = storeObjectView.getNameValue().getText();
+			String description = storeObjectView.getDescriptionValue().getText();
+			int price = Integer.parseInt(storeObjectView.getPriceValue().getText());
+			int dieN = Integer.parseInt(storeObjectView.getDieNValue().getText());
+			int dieF = Integer.parseInt(storeObjectView.getDieFValue().getText());
+			int shieldValue = Integer.parseInt(storeObjectView.getShieldValue().getText());
+			int armorClass = Integer.parseInt(storeObjectView.getArmorClassValue().getText());
+			int usesLeft = Integer.parseInt(storeObjectView.getUsesValue().getText());
+			int healing = Integer.parseInt(storeObjectView.getHealingValue().getText());
+			String select=String.valueOf(this.storeObjectView.getTipo().getSelectedItem());
 			switch(select) {
 			case "Arma":
 				Weapon weapon = new Weapon(name, description, price, dieN, dieF);
 				this.stores.get(i).getStorage().addEquippableItem(weapon);
-				System.out.println(this.stores.get(i).getStorage().getEquippableItem(0).getName());
+				
 				//storeObjectView.getDlm().addElement(weapon);
 				break;
 			case "Escudo":
@@ -117,6 +118,13 @@ public class ControlStoreObject implements ActionListener{
 			
 			
 			 //System.out.println(this.stores.get(i).getStorage().getEquippableItem(0).getName());
+			
+		}
+		if(e.getSource()==storeObjectView.getAtras()) {
+			StartView st= new StartView();
+			ControlStartView csv=new ControlStartView(cd,sd,st);
+			st.setVisible(true);
+			storeObjectView.dispose();
 			
 		}
 		

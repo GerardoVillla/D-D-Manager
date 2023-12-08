@@ -24,7 +24,9 @@ public class ControlEditarPersonajes implements ActionListener{
 		this.epv = epv;
 		this.characters=(ArrayList<Character>) cd.getCharacters();
 		
-		epv.getBtnFinalizar().addActionListener(this);
+		epv.getFinalizar().addActionListener(this);
+		epv.getAtras().addActionListener(this);
+		
 		
 		epv.getOro().setText(String.valueOf(this.characters.get(ind).getMoney()));
 		epv.getHP().setText(String.valueOf(this.characters.get(ind).getMaxHP()));

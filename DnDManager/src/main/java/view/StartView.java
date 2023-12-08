@@ -6,10 +6,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextArea;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
 
 public class StartView extends JFrame {
 
@@ -18,6 +20,7 @@ public class StartView extends JFrame {
 	private JButton tienda;
 	private JButton consultarPersonaje;
 	private JButton crearPersonaje;
+	private JLabel Imagen;
 
 	/**
 	 * Launch the application.
@@ -72,6 +75,15 @@ public class StartView extends JFrame {
 		 crearPersonaje = new JButton("Crear personaje");
 		crearPersonaje.setBounds(79, 138, 230, 69);
 		panel.add(crearPersonaje);
+		
+		Imagen = new JLabel("New label");
+		Imagen.setIcon(new ImageIcon(StartView.class.getResource("/image/FondoAzul.jpg")));
+		Imagen.setBounds(389, 0, 350, 415);
+		ImageIcon ico = new ImageIcon(getClass().getResource("/image/FondoAzul.jpg"));
+		ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(Imagen.getWidth(), Imagen.getHeight(), Image.SCALE_SMOOTH));
+		Imagen.setIcon(img);
+		panel.add(Imagen);
+		
 	}
 
 	public JButton getTienda() {

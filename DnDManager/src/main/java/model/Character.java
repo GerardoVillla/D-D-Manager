@@ -86,7 +86,7 @@ public class Character {
         }
     }
 
-    private int calculateDamage(){
+    public int calculateDamage(){
         int damage = 0;
         if(this.weaponSlot != null){
             //damage = (int) (Math.random() * this.weaponSlot.getDamage()) + 1;
@@ -102,6 +102,15 @@ public class Character {
         }else{
             return 0;
         }
+    }
+    
+    public boolean tryBuy(int price) {
+    	if(this.money>= price) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
     }
     
     public Character(Race race, String characterName, int strength, int dexterity, int wisdom, int charisma, int constitution, int intelligence, int maxHP, int level) {
@@ -318,7 +327,27 @@ public class Character {
 	public void setCA(int cA) {
 		CA = cA;
 	}
-
+	
+	public void buy(Item item) {
+		this.setMoney(money-item.getPrice());
+		if(item instanceof Equippable) {
+			this.storage.addEquippableItem((Equippable) item);
+		}else {
+			this.storage.addUsableItem((Usable) item);
+		}
+	}
+	
+	public void sell(Usable item, int index) {
+		this.setMoney(this.money+item.getPrice());
+		this.storage.getUsableitems().remove(index);
+		
+	}
+	
+	public void sell(Equippable item, int index) {
+		this.setMoney(this.money+item.getPrice());
+		this.storage.getEquippableitems().remove(index);
+		
+	}
 
     /* 
     public void comprarObjeto(){

@@ -17,6 +17,7 @@ import java.awt.Color;
 import java.awt.Panel;
 import java.awt.Font;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
@@ -45,6 +46,11 @@ public class StoreObjectView extends JFrame {
 	private JTextField shieldValue;
 	private JTextField armorClassValue;
 	private JComboBox tipo;
+	private JButton Atras;
+
+	public JButton getAtras() {
+		return Atras;
+	}
 
 	/**
 	 * Launch the application.
@@ -77,7 +83,7 @@ public class StoreObjectView extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBorder(null);
 		panel.setBackground(new Color(188, 205, 203));
-		panel.setBounds(10, 22, 358, 406);
+		panel.setBounds(10, 22, 358, 398);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -87,7 +93,7 @@ public class StoreObjectView extends JFrame {
 		panel.add(lblNewLabel_1);
 		
 		btnAddItem = new JButton("Agregar objeto");
-		btnAddItem.setBounds(120, 358, 111, 23);
+		btnAddItem.setBounds(110, 360, 131, 23);
 		panel.add(btnAddItem);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -100,7 +106,7 @@ public class StoreObjectView extends JFrame {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(188, 205, 203));
-		panel_1.setBounds(403, 22, 346, 406);
+		panel_1.setBounds(403, 22, 346, 398);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -119,7 +125,7 @@ public class StoreObjectView extends JFrame {
 		priceValue.setColumns(10);
 		
 		descriptionValue = new JTextArea();
-		descriptionValue.setBounds(29, 305, 283, 90);
+		descriptionValue.setBounds(29, 278, 283, 90);
 		descriptionValue.setWrapStyleWord(true);
 		descriptionValue.setRows(5);
 		descriptionValue.setLineWrap(true);
@@ -162,7 +168,7 @@ public class StoreObjectView extends JFrame {
 		panel_1.add(dieFValue);
 		
 		JLabel descriptionLabel = new JLabel("Descripcion");
-		descriptionLabel.setBounds(29, 280, 66, 14);
+		descriptionLabel.setBounds(29, 254, 66, 14);
 		panel_1.add(descriptionLabel);
 		
 		healingValue = new JTextField();
@@ -208,6 +214,19 @@ public class StoreObjectView extends JFrame {
 		tipo.addItem("Armadura");
 		tipo.addItem("Consumible");
 		panel_1.add(tipo);
+		
+		Atras = new JButton("ATRAS");
+		Atras.setForeground(new Color(0, 0, 0));
+		Atras.setBackground(new Color(242, 234, 188));
+		Atras.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		Atras.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
+		Atras.setBounds(10, 430, 125, 23);
+		Atras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		contentPane.add(Atras);
 	}
 
 	public JTextField getHealingValue() {
