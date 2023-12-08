@@ -1,4 +1,3 @@
-
 package view;
 
 import java.awt.EventQueue;
@@ -18,7 +17,7 @@ import javax.swing.border.LineBorder;
 
 import model.Store;
 
-public class ListaTiendasView extends JFrame {
+public class ListaTiendasComprar extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -46,7 +45,7 @@ public class ListaTiendasView extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ListaTiendasView() {
+	public ListaTiendasComprar() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
 		contentPane = new JPanel();

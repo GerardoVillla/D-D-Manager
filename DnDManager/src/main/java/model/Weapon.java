@@ -6,12 +6,14 @@ package model;
  */
 
 public class Weapon extends Equippable {
-	private int damage;
+	private int diceNum;
+	private int facesNum;
     
-    public Weapon(String name, String description, int price, boolean status, int diceNum, int facesNum, int damage) {
-		super(name, description, price, status, diceNum, facesNum);
-		this.damage=damage;
-		// TODO Auto-generated constructor stub
+    public Weapon(String name, String description, int price, int diceNum, int facesNum) {
+		super(name, description, price);
+		this.diceNum=diceNum;
+		this.facesNum=facesNum;
+		
 	}
 
 
@@ -21,7 +23,5 @@ public class Weapon extends Equippable {
         
     }
     */
-    public int getDamage(){
-        return this.damage;
-    }
+   
 }

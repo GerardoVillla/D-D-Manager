@@ -89,7 +89,7 @@ public class Character {
     private int calculateDamage(){
         int damage = 0;
         if(this.weaponSlot != null){
-            damage = (int) (Math.random() * this.weaponSlot.getDamage()) + 1;
+            //damage = (int) (Math.random() * this.weaponSlot.getDamage()) + 1;
         }else{
             damage = (int) (Math.random() * 4) + 1;
         }

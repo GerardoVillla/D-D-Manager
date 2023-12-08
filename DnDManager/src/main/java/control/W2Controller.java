@@ -28,6 +28,7 @@ public class W2Controller implements ActionListener {
 	private Window2 w2;
 	private CharacterDao cd;
 	private StoreDao sd;
+	private int index;
 	
 	public W2Controller(CharacterDao cd, StoreDao sd,Window2 w2) {
 		this.cd=cd;
@@ -69,6 +70,8 @@ public class W2Controller implements ActionListener {
 					Character sc = (Character) w2.getList().getSelectedValue();
 					//System.out.println("Fuerza igual a "+sc.getStrength());
 					//System.out.println(sc.getRace().getName());
+					int ind = w2.getList().getSelectedIndex();
+					index=ind;
 					
 					w2.getStrenghtValue().setText(String.valueOf(sc.getStrength()));
 					w2.getDexterityValue().setText(String.valueOf(sc.getDexterity()));
@@ -122,11 +125,17 @@ public class W2Controller implements ActionListener {
 			
 		}
 		if(w2.getBtnEdit() == e.getSource()) {
+			EditarPersonaje ep=new EditarPersonaje();
+			ControlEditarPersonajes cep=new ControlEditarPersonajes(index,ep,cd,sd);
+			ep.setVisible(true);
 			//Sustituir por la ventana de Editar
 			w2.dispose();
 		}
 		if(w2.getBtnBuySell() == e.getSource()) {
-			//Sustituir por la ventana de Tienda
+			ListaTiendasComprar ltc= new ListaTiendasComprar();
+			ControlListaTiendasComprar clt=new ControlListaTiendasComprar(cd,sd,ltc, index);
+			ltc.setVisible(true);
+			
 			w2.dispose();
 		}
 		if(e.getSource()==w2.getAtras()) {

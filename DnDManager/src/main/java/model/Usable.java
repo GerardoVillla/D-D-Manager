@@ -7,11 +7,13 @@ package model;
 public class Usable extends Item {
     
 	private int usesLeft;
+	private int healing;
 	
-    public Usable(String name, String description, int price, int usesLeft) {
+    public Usable(String name, String description, int price, int usesLeft, int healing) {
     	
 		super(name, description, price);
 		this.usesLeft=usesLeft;
+		this.healing=healing;
 		// TODO Auto-generated constructor stub
 	}
 
