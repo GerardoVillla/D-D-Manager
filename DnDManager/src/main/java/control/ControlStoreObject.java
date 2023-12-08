@@ -45,10 +45,10 @@ public class ControlStoreObject implements ActionListener{
 				so.getDlm().addElement(new Weapon(name, description, price, false, dieN, dieF));
 			}
 			else if(so.getTypeValue().getText() == "Escudo" || so.getTypeValue().getText() == "Shield"){
-				so.getDlm().addElement(new Shield(name, description, price, false, shieldValue));
+				so.getDlm().addElement(new Shield(name, description, price, shieldValue));
 			}
 			else if(so.getTypeValue().getText() == "Armadura" || so.getTypeValue().getText() == "Armor") {
-				so.getDlm().addElement(new Armor(name, description, price, false, armorClass));
+				so.getDlm().addElement(new Armor(name, description, price, armorClass));
 			}
 			else if(so.getTypeValue().getText() == "Consumible" || so.getTypeValue().getText() == "Usable") {
 				so.getDlm().addElement(new Usable(name, description, price, usesLeft, healing));
