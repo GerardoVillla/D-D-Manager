@@ -23,7 +23,6 @@ import javax.swing.table.DefaultTableModel;
 
 import model.Character;
 import model.Equippable;
-import model.LightArmor;
 import model.Shield;
 import model.Storage;
 import model.Usable;
@@ -109,6 +108,7 @@ public class Tienda extends JFrame {
 		modelE.addColumn("Precio");
 		
 		//
+		/*
 		ArrayList<Equippable> Equipables = new ArrayList<Equippable>();
 		Weapon Sword = new Weapon("Espada","Arma basica de rango medio-corto",100,true,1,6,35);
 		Shield SmallShield = new Shield("Escudo pequeño", "Escudo de tamaño mediano capaz de cubrir el torso",140,true,1,10,50);
@@ -116,7 +116,8 @@ public class Tienda extends JFrame {
 		Equipables.add(Sword);
 		Equipables.add(SmallShield);
 		Equipables.add(LeatherArmor);
-		//
+		*/
+		/*
 		System.out.println(Equipables.size());
 		for(Equippable Equipable: Equipables) {
 			
@@ -126,6 +127,7 @@ public class Tienda extends JFrame {
 			
 			modelE.addRow(fila);
 		}
+		*/
 			Equiptable.setEnabled(false);
 			Equiptable.getColumnModel().getColumn(0).setPreferredWidth(100);
 			Equiptable.getColumnModel().getColumn(1).setPreferredWidth(50);
@@ -144,6 +146,7 @@ public class Tienda extends JFrame {
 		Consumibletable.setModel(modelU);
 		modelU.addColumn("Objeto");
 		modelU.addColumn("Precio");
+		/*
 		ArrayList<Usable> Usables = new ArrayList<Usable>();
 		Usable HealingPotion = new Usable("Pocion Curativa", "Pocion de un solo uso que regenera una buena parte de la vida",125,1);
 		Usable Potion2 = new Usable("Pocion reusable", "Cura menos pero tiene mas usos",115,2);
@@ -162,6 +165,7 @@ public class Tienda extends JFrame {
 			
 			modelU.addRow(fila);
 		}
+		*/
 		Consumibletable.setEnabled(false);
 		Consumibletable.getColumnModel().getColumn(0).setPreferredWidth(100);
 		Consumibletable.getColumnModel().getColumn(1).setPreferredWidth(50);
@@ -217,7 +221,7 @@ public class Tienda extends JFrame {
 		Inventorytable.setModel(modelI);
 		modelI.addColumn("Objeto");
 		modelI.addColumn("Precio");
-		
+		/*
 		Character C = new Character();
 		C.getStorage().addEquippableItem(LeatherArmor);
 		C.getStorage().addUsableItem(Potion3);
@@ -239,6 +243,7 @@ public class Tienda extends JFrame {
 			
 			modelI.addRow(fila);
 		}
+		*/
 		Inventorytable.setEnabled(false);
 		Inventorytable.getColumnModel().getColumn(0).setPreferredWidth(100);
 		Inventorytable.getColumnModel().getColumn(1).setPreferredWidth(50);

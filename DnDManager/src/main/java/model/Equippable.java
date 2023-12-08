@@ -10,14 +10,11 @@ package model;
 public abstract class Equippable extends Item{
     
     protected boolean status;
-    protected int diceNum;
-    protected int facesNum;
+
     
-    public Equippable(String name, String description, int price, boolean status,int diceNum, int facesNum) {
+    public Equippable(String name, String description, int price) {
     	super(name,description,price);
-    	this.status=status;
-    	this.diceNum=diceNum;
-    	this.facesNum=facesNum;
+    	this.status=false;
     }
     /*
     public void equipar(){

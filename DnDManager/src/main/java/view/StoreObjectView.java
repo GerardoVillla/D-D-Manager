@@ -16,17 +16,34 @@ import javax.swing.JTextField;
 import java.awt.Color;
 import java.awt.Panel;
 import java.awt.Font;
+
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.border.LineBorder;
+
+import model.Character;
+import model.Item;
 
 public class StoreObjectView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField nameValue;
+	private JTextField typeValue;
+	private JTextField priceValue;
+	private JButton btnAddItem;
+	private JList listItem;
+	private JLabel priceLabel;
+	private JTextArea descriptionValue;
+	private DefaultListModel<Item> dlm;
+	private JTextField dieNValue;
+	private JTextField usesValue;
+	private JTextField dieFValue;
+	private JTextField healingValue;
+	private JTextField shieldValue;
+	private JTextField armorClassValue;
 
 	/**
 	 * Launch the application.
@@ -56,36 +73,10 @@ public class StoreObjectView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JList list = new JList();
-		list.setBounds(96, 100, 1, 1);
-		contentPane.add(list);
-		
-		JLabel lblNewLabel_2 = new JLabel("Nombre");
-		lblNewLabel_2.setBounds(430, 101, 46, 14);
-		contentPane.add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_4 = new JLabel("Tipo");
-		lblNewLabel_4.setBounds(430, 185, 46, 14);
-		contentPane.add(lblNewLabel_4);
-		
-		JLabel lblNewLabel_5_1 = new JLabel("Descripcion");
-		lblNewLabel_5_1.setBounds(431, 257, 66, 14);
-		contentPane.add(lblNewLabel_5_1);
-		
-		textField = new JTextField();
-		textField.setBounds(430, 124, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(431, 209, 86, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
-		
 		JPanel panel = new JPanel();
 		panel.setBorder(null);
 		panel.setBackground(new Color(188, 205, 203));
-		panel.setBounds(27, 34, 358, 406);
+		panel.setBounds(10, 22, 358, 406);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -94,58 +85,236 @@ public class StoreObjectView extends JFrame {
 		lblNewLabel_1.setBounds(120, -16, 121, 93);
 		panel.add(lblNewLabel_1);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(294, 166, 17, 48);
-		panel.add(scrollBar);
+		btnAddItem = new JButton("Agregar objeto");
+		btnAddItem.setBounds(120, 358, 111, 23);
+		panel.add(btnAddItem);
 		
-		List list_1 = new List();
-		list_1.setBounds(58, 66, 230, 269);
-		panel.add(list_1);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(46, 75, 260, 272);
+		panel.add(scrollPane);
 		
-		JButton btnNewButton_1 = new JButton("Editar obj");
-		btnNewButton_1.setBounds(187, 358, 78, 23);
-		panel.add(btnNewButton_1);
-		
-		JButton btnNewButton_1_1 = new JButton("Agregar obj");
-		btnNewButton_1_1.setBounds(87, 358, 90, 23);
-		panel.add(btnNewButton_1_1);
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
-		textField_4 = new JTextField();
-		textField_4.setBounds(431, 282, 306, 105);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		listItem = new JList();
+		dlm = new DefaultListModel<Item>();
+		scrollPane.setViewportView(listItem);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(188, 205, 203));
-		panel_1.setBounds(409, 34, 346, 406);
+		panel_1.setBounds(403, 22, 346, 406);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Objeto");
-		lblNewLabel_1_1.setBounds(106, 11, 98, 43);
+		lblNewLabel_1_1.setBounds(120, 11, 98, 43);
 		panel_1.add(lblNewLabel_1_1);
 		lblNewLabel_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 32));
 		
-		JLabel lblNewLabel_3 = new JLabel("Precio");
-		lblNewLabel_3.setBounds(186, 65, 46, 14);
-		panel_1.add(lblNewLabel_3);
+		priceLabel = new JLabel("Precio");
+		priceLabel.setBounds(125, 87, 46, 14);
+		panel_1.add(priceLabel);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(186, 90, 86, 20);
-		panel_1.add(textField_2);
-		textField_2.setColumns(10);
+		priceValue = new JTextField();
+		priceValue.setBounds(125, 112, 86, 20);
+		panel_1.add(priceValue);
+		priceValue.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(186, 180, 86, 20);
-		panel_1.add(textField_3);
-		textField_3.setColumns(10);
+		descriptionValue = new JTextArea();
+		descriptionValue.setBounds(29, 305, 283, 90);
+		descriptionValue.setWrapStyleWord(true);
+		descriptionValue.setRows(5);
+		descriptionValue.setLineWrap(true);
+		descriptionValue.setForeground(Color.BLACK);
+		descriptionValue.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		descriptionValue.setColumns(20);
+		descriptionValue.setBorder(new LineBorder(Color.WHITE));
+		descriptionValue.setBackground(Color.WHITE);
+		panel_1.add(descriptionValue);
 		
-		JLabel lblNewLabel_5 = new JLabel("Efecto");
-		lblNewLabel_5.setBounds(186, 159, 46, 14);
-		panel_1.add(lblNewLabel_5);
+		JLabel typeLabel = new JLabel("Tipo");
+		typeLabel.setBounds(221, 87, 46, 14);
+		panel_1.add(typeLabel);
+		
+		typeValue = new JTextField();
+		typeValue.setBounds(221, 112, 86, 20);
+		panel_1.add(typeValue);
+		typeValue.setColumns(10);
+		
+		JLabel dieNLabel = new JLabel("Num. Dados");
+		dieNLabel.setBounds(125, 143, 79, 14);
+		panel_1.add(dieNLabel);
+		
+		dieNValue = new JTextField();
+		dieNValue.setBounds(125, 168, 86, 20);
+		dieNValue.setColumns(10);
+		panel_1.add(dieNValue);
+		
+		JLabel usesLable = new JLabel("Usos");
+		usesLable.setBounds(29, 143, 46, 14);
+		panel_1.add(usesLable);
+		
+		usesValue = new JTextField();
+		usesValue.setBounds(29, 168, 86, 20);
+		usesValue.setColumns(10);
+		panel_1.add(usesValue);
+		
+		JLabel dieFLabel = new JLabel("Num. Caras");
+		dieFLabel.setBounds(221, 143, 79, 14);
+		panel_1.add(dieFLabel);
+		
+		dieFValue = new JTextField();
+		dieFValue.setBounds(221, 168, 86, 20);
+		dieFValue.setColumns(10);
+		panel_1.add(dieFValue);
+		
+		JLabel descriptionLabel = new JLabel("Descripcion");
+		descriptionLabel.setBounds(29, 280, 66, 14);
+		panel_1.add(descriptionLabel);
+		
+		healingValue = new JTextField();
+		healingValue.setColumns(10);
+		healingValue.setBounds(29, 224, 86, 20);
+		panel_1.add(healingValue);
+		
+		JLabel healingLabel = new JLabel("Curacion");
+		healingLabel.setBounds(29, 199, 46, 14);
+		panel_1.add(healingLabel);
+		
+		JLabel shieldLabel = new JLabel("Defensa Escudo");
+		shieldLabel.setBounds(125, 199, 79, 14);
+		panel_1.add(shieldLabel);
+		
+		shieldValue = new JTextField();
+		shieldValue.setColumns(10);
+		shieldValue.setBounds(125, 224, 86, 20);
+		panel_1.add(shieldValue);
+		
+		JLabel armorClassLabel = new JLabel("Clase de armadura");
+		armorClassLabel.setBounds(221, 199, 91, 14);
+		panel_1.add(armorClassLabel);
+		
+		armorClassValue = new JTextField();
+		armorClassValue.setColumns(10);
+		armorClassValue.setBounds(221, 224, 86, 20);
+		panel_1.add(armorClassValue);
+		
+		JLabel nameLabel = new JLabel("Nombre");
+		nameLabel.setBounds(29, 89, 46, 14);
+		panel_1.add(nameLabel);
+		
+		nameValue = new JTextField();
+		nameValue.setBounds(29, 112, 86, 20);
+		panel_1.add(nameValue);
+		nameValue.setColumns(10);
+	}
+
+	public JTextField getHealingValue() {
+		return healingValue;
+	}
+
+	public void setHealingValue(JTextField healingValue) {
+		this.healingValue = healingValue;
+	}
+
+	public JTextField getCuracionValue() {
+		return healingValue;
+	}
+
+	public void setCuracionValue(JTextField curacionValue) {
+		this.healingValue = curacionValue;
+	}
+
+	public JTextField getShieldValue() {
+		return shieldValue;
+	}
+
+	public void setShieldValue(JTextField shieldValue) {
+		this.shieldValue = shieldValue;
+	}
+
+	public JTextField getArmorClassValue() {
+		return armorClassValue;
+	}
+
+	public void setArmorClassValue(JTextField armorClassValue) {
+		this.armorClassValue = armorClassValue;
+	}
+
+	public JTextField getDieNValue() {
+		return dieNValue;
+	}
+
+	public void setDieNValue(JTextField dieNValue) {
+		this.dieNValue = dieNValue;
+	}
+
+	public JTextField getUsesValue() {
+		return usesValue;
+	}
+
+	public void setUsesValue(JTextField usesValue) {
+		this.usesValue = usesValue;
+	}
+
+	public JTextField getDieFValue() {
+		return dieFValue;
+	}
+
+	public void setDieFValue(JTextField dieFValue) {
+		this.dieFValue = dieFValue;
+	}
+
+	public JTextArea getDescriptionValue() {
+		return descriptionValue;
+	}
+
+	public void setDescriptionValue(JTextArea descriptionValue) {
+		this.descriptionValue = descriptionValue;
+	}
+
+	public DefaultListModel<Item> getDlm() {
+		return dlm;
+	}
+
+	public void setDlm(DefaultListModel<Item> dlm) {
+		this.dlm = dlm;
+	}
+
+	public JTextField getNameValue() {
+		return nameValue;
+	}
+
+	public void setNameValue(JTextField nameValue) {
+		this.nameValue = nameValue;
+	}
+
+	public JTextField getTypeValue() {
+		return typeValue;
+	}
+
+	public void setTypeValue(JTextField typeValue) {
+		this.typeValue = typeValue;
+	}
+
+	public JTextField getPriceValue() {
+		return priceValue;
+	}
+
+	public void setPriceValue(JTextField priceValue) {
+		this.priceValue = priceValue;
+	}
+
+	public JButton getBtnAddItem() {
+		return btnAddItem;
+	}
+
+	public void setBtnAddItem(JButton btnAddItem) {
+		this.btnAddItem = btnAddItem;
+	}
+
+	public JList getListItem() {
+		return listItem;
+	}
+
+	public void setListItem(JList listItem) {
+		this.listItem = listItem;
 	}
 }
