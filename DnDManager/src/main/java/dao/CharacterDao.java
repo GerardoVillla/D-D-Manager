@@ -15,7 +15,7 @@ import model.Character;
 
 
 public class CharacterDao {
-	    private static final String FILE_PATH = "D:/IGNITER/Documents/Github/D-D-Manager/DnDManager/src/main/java/files/characters.json";
+	    private static final String FILE_PATH = "C:/Users/luism/Downloads/DnDManager/DnDManager/src/main/java/files/characters.json";
 	    private List<Character> characters;
 	    
 	    public CharacterDao() {
@@ -62,39 +62,30 @@ public class CharacterDao {
 	        }
 	    }
 	    
-	    public void updateBasicAtributeCharacter() {
-	    	
-	    	try {
-	    	Gson gson = new Gson();
-	    	String json = new String(Files.readAllBytes(Paths.get(FILE_PATH)));
-	    	Character[] characterArray = gson.fromJson(json, Character[].class);
-	    	
-	    	for(Character character : characterArray) {
-	    		if(character.getLevel() == 24) {
-	    			character.setLevel(32);
-	                // Serializar el array actualizado y escribirlo de 	nuevo en el archivo JSON
-	                String updatedJson = gson.toJson(characterArray);
-	                Files.write(Paths.get(FILE_PATH), updatedJson.getBytes());
-	                
-	        		
-	    		}
-	    		System.out.println(character);
-	    		
-	    		}
-	    		//Actualizar array de personajes local
-	    		this.loadCharacters();
-	    	
-	    	}catch(Exception e) {
-	    		e.printStackTrace();
-	    	}	
-	    }
 	    
-		public void updateStorageAtributeCharacter(int id, Object updat) {
-			
-		}
+	    
+	  
+	    //Actualizar archivo json a partir de la lista de tiendas
+	    public void updateJsonFile() {
+	        try {
+	        	saveListStores();
+	        } catch (Exception e) {
+	            System.err.println("Error al actualizar el archivo JSON: " + e.getMessage());
+	            e.printStackTrace();
+	        }
+	    }
+
+	    private void saveListStores() {
+	        try (FileWriter writer = new FileWriter(FILE_PATH)) {
+	            new Gson().toJson(characters, writer);
+	        } catch (IOException e) {
+	            System.err.println("Error al escribir en el archivo JSON: " + e.getMessage());
+	            e.printStackTrace();
+	        }
+	    }
 		
-		
-		
+	    
+	    
 		public List<Character> getCharacters() {
 			return characters;
 		}
@@ -103,5 +94,14 @@ public class CharacterDao {
 			this.characters = characters;
 		}
 		
+		
+		public static void main(String[] args) {
+			CharacterDao c = new CharacterDao();
+			c.getCharacters().get(1).setCharacterName("PEPA");
+			c.updateJsonFile();
+			for (Character character : c.getCharacters()) {
+				System.out.println(character.toString());
+			}
+		}
 
 }
