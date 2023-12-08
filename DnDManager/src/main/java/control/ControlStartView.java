@@ -35,6 +35,13 @@ public class ControlStartView implements ActionListener{
 			this.startView.dispose();
 			
 		}
+		if(e.getSource()==startView.getTienda()) {
+			ListaTiendasView ltv=new ListaTiendasView();
+			ControlListaTiendas clt=new ControlListaTiendas(cd,sd,ltv);
+			ltv.setVisible(true);
+			this.startView.dispose();
+			
+		}
 		
 	}
 	

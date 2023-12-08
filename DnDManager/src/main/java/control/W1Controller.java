@@ -35,6 +35,11 @@ public class W1Controller implements ActionListener{
 			String descripcion=w1.getDescriptionField().getText();
 			Store store= new Store(name);
 			sd.saveStore(store);
+			ListaTiendasView ltv = new ListaTiendasView();
+			ControlListaTiendas clt=new ControlListaTiendas(cd,sd,ltv);
+			w1.dispose();
+			ltv.setVisible(true);
+			
 			
 			
 		}

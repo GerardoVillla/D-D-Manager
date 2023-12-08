@@ -25,13 +25,13 @@ import javax.swing.border.LineBorder;
 
 import model.Character;
 import model.Item;
+import javax.swing.JComboBox;
 
 public class StoreObjectView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField nameValue;
-	private JTextField typeValue;
 	private JTextField priceValue;
 	private JButton btnAddItem;
 	private JList listItem;
@@ -44,6 +44,7 @@ public class StoreObjectView extends JFrame {
 	private JTextField healingValue;
 	private JTextField shieldValue;
 	private JTextField armorClassValue;
+	private JComboBox tipo;
 
 	/**
 	 * Launch the application.
@@ -133,11 +134,6 @@ public class StoreObjectView extends JFrame {
 		typeLabel.setBounds(221, 87, 46, 14);
 		panel_1.add(typeLabel);
 		
-		typeValue = new JTextField();
-		typeValue.setBounds(221, 112, 86, 20);
-		panel_1.add(typeValue);
-		typeValue.setColumns(10);
-		
 		JLabel dieNLabel = new JLabel("Num. Dados");
 		dieNLabel.setBounds(125, 143, 79, 14);
 		panel_1.add(dieNLabel);
@@ -204,6 +200,14 @@ public class StoreObjectView extends JFrame {
 		nameValue.setBounds(29, 112, 86, 20);
 		panel_1.add(nameValue);
 		nameValue.setColumns(10);
+		
+		tipo = new JComboBox();
+		tipo.setBounds(221, 111, 86, 22);
+		tipo.addItem("Arma");
+		tipo.addItem("Escudo");
+		tipo.addItem("Armadura");
+		tipo.addItem("Consumible");
+		panel_1.add(tipo);
 	}
 
 	public JTextField getHealingValue() {
@@ -286,12 +290,14 @@ public class StoreObjectView extends JFrame {
 		this.nameValue = nameValue;
 	}
 
-	public JTextField getTypeValue() {
-		return typeValue;
+	
+
+	public JComboBox getTipo() {
+		return tipo;
 	}
 
-	public void setTypeValue(JTextField typeValue) {
-		this.typeValue = typeValue;
+	public void setTipo(JComboBox tipo) {
+		this.tipo = tipo;
 	}
 
 	public JTextField getPriceValue() {

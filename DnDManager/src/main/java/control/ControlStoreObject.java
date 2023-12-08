@@ -1,58 +1,122 @@
 package control;
 
-import java.util.ArrayList;
-import java.awt.event.ActionListener;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.ListCellRenderer;
 
 import dao.CharacterDao;
 import dao.StoreDao;
-import model.*;
+import model.Armor;
+import model.Item;
+import model.Shield;
+import model.Store;
+import model.Usable;
+import model.Weapon;
 import view.StoreObjectView;
-import view.*;
 
 public class ControlStoreObject implements ActionListener{
 	
 	private ArrayList<Item> items;
 	private Store store;
+	private ArrayList<Store> stores;
 	private StoreDao sd;
-	private StoreObjectView so;
+	private CharacterDao cd;
+	private StoreObjectView storeObjectView;
+	private int i;
 	
-	public ControlStoreObject(StoreDao sd, StoreObjectView so) {
+	public ControlStoreObject(CharacterDao cd,StoreDao sd, StoreObjectView storeObjectView, int i) {
 		this.sd = sd;
-		this.so = so;
+		this.cd=cd;
+		this.stores= (ArrayList<Store>) sd.getStores();
+		this.storeObjectView = storeObjectView;
+		this.i=i;
+		System.out.println(this.stores.get(this.i));
+		System.out.println(i);
 		
-		so.getBtnAddItem().addActionListener(this);
+		storeObjectView.getBtnAddItem().addActionListener(this);
+		for(Item item: this.stores.get(i).getStorage().getEquippableitems()) {
+			storeObjectView.getDlm().addElement(item);
+		}
+		for(Item item: this.stores.get(i).getStorage().getUsableitems()) {
+			storeObjectView.getDlm().addElement(item);
+		}
+		storeObjectView.getListItem().setCellRenderer(new ListCellRenderer<Item>() {
+		    public Component getListCellRendererComponent(JList<? extends Item> list, Item value, int index, boolean isSelected, boolean cellHasFocus) {
+		        String displayString = value.getName();
+		        JLabel label = new JLabel(displayString);
+		        if (isSelected) {
+		            label.setBackground(list.getSelectionBackground());
+		            label.setForeground(list.getSelectionForeground());
+		        } else {
+		            label.setBackground(list.getBackground());
+		            label.setForeground(list.getForeground());
+		        }
+		        return label;
+		    }
+		});
+		storeObjectView.getListItem().setModel(storeObjectView.getDlm());
 		
 	}
-
+	//getEquippableItem
 
 	public void actionPerformed(ActionEvent e) {
 		
-		String name = so.getNameValue().getText();
-		String description = so.getDescriptionValue().getText();
-		int price = Integer.parseInt(so.getPriceValue().getText());
-		int dieN = Integer.parseInt(so.getDieNValue().getText());
-		int dieF = Integer.parseInt(so.getDieFValue().getText());
-		int shieldValue = Integer.parseInt(so.getShieldValue().getText());
-		int armorClass = Integer.parseInt(so.getArmorClassValue().getText());
-		int usesLeft = Integer.parseInt(so.getUsesValue().getText());
-		int healing = Integer.parseInt(so.getHealingValue().getText());
+		String name = storeObjectView.getNameValue().getText();
+		String description = storeObjectView.getDescriptionValue().getText();
+		int price = Integer.parseInt(storeObjectView.getPriceValue().getText());
+		int dieN = Integer.parseInt(storeObjectView.getDieNValue().getText());
+		int dieF = Integer.parseInt(storeObjectView.getDieFValue().getText());
+		int shieldValue = Integer.parseInt(storeObjectView.getShieldValue().getText());
+		int armorClass = Integer.parseInt(storeObjectView.getArmorClassValue().getText());
+		int usesLeft = Integer.parseInt(storeObjectView.getUsesValue().getText());
+		int healing = Integer.parseInt(storeObjectView.getHealingValue().getText());
+		String select=String.valueOf(this.storeObjectView.getTipo().getSelectedItem());
 		
-		
-		if(so.getBtnAddItem() == e.getSource()) {
-
-			if(so.getTypeValue().getText() == "Arma" || so.getTypeValue().getText() == "Weapon") {
-				so.getDlm().addElement(new Weapon(name, description, price, false, dieN, dieF));
+		if(storeObjectView.getBtnAddItem() == e.getSource()) {
+			switch(select) {
+			case "Arma":
+				Weapon weapon = new Weapon(name, description, price, dieN, dieF);
+				this.stores.get(i).getStorage().addEquippableItem(weapon);
+				System.out.println(this.stores.get(i).getStorage().getEquippableItem(0).getName());
+				//storeObjectView.getDlm().addElement(weapon);
+				break;
+			case "Escudo":
+				Shield shield= new Shield(name, description, price, shieldValue);
+				this.stores.get(i).getStorage().addEquippableItem(shield);
+				//storeObjectView.getDlm().addElement(shield);
+				break;
+			case "Armadura":
+				Armor armor=new Armor(name, description, price, armorClass);
+				this.stores.get(i).getStorage().addEquippableItem(armor);
+				//storeObjectView.getDlm().addElement(armor);
+				break;
+			case "Consumible":
+				Usable usable= new Usable(name, description, price, usesLeft, healing);
+				 this.stores.get(i).getStorage().addUsableItem(usable);
+				//storeObjectView.getDlm().addElement(usable);
+				break;
+			
 			}
-			else if(so.getTypeValue().getText() == "Escudo" || so.getTypeValue().getText() == "Shield"){
-				so.getDlm().addElement(new Shield(name, description, price, shieldValue));
-			}
-			else if(so.getTypeValue().getText() == "Armadura" || so.getTypeValue().getText() == "Armor") {
-				so.getDlm().addElement(new Armor(name, description, price, armorClass));
-			}
-			else if(so.getTypeValue().getText() == "Consumible" || so.getTypeValue().getText() == "Usable") {
-				so.getDlm().addElement(new Usable(name, description, price, usesLeft, healing));
-			}
+			sd.setStores(stores);
+			sd.updateJsonFile();
+			storeObjectView.getDescriptionValue().setText(null);
+			storeObjectView.getPriceValue().setText(null);
+			storeObjectView.getDieFValue().setText(null);
+			storeObjectView.getDieNValue().setText(null);
+			storeObjectView.getShieldValue().setText(null);
+			storeObjectView.getArmorClassValue().setText(null);
+			storeObjectView.getUsesValue().setText(null);
+			storeObjectView.getNameValue().setText(null);
+			storeObjectView.getUsesValue().setText(null);
+			storeObjectView.getHealingValue().setText(null);
+			
+			
+			 //System.out.println(this.stores.get(i).getStorage().getEquippableItem(0).getName());
 			
 		}
 		
